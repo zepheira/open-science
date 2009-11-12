@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>MarketDisplayTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">MarketDisplayTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>../market.html</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTitle</td>
+	<td>Knowledge Discovery Suite: Application Marketplace</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//div[@id='rss']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyElementPresent</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//div[@id='editors-choice-facet']/div[2]/div[1]/div[1]/a[1]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td>7</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td>1</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

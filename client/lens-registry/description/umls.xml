@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<entry xmlns="http://www.w3.org/2005/Atom">
+<id>http://open-science.zepheira.com/services/lenses/umlstags</id>
+<title type="text">WhatIzIt UMLS Tags Lens</title>
+<summary type="text">View the results of WhatIzIt processing using UMLS tags.</summary>
+<link rel="http://purl.zepheira.com/osci/get" href="http://open-science.zepheira.com/lens-registry/umls.html" type="application/xhtml+xml" />
+</entry>
+

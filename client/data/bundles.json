@@ -1,0 +1,23 @@
+{
+"items" :      [
+{
+"id" : "http://open-science.zepheira.com/market/bundles/101/",
+"applicationlink" : "http://open-science.zepheira.com/market/bundles/101/",
+"demoLink" : "application.html",
+"type" : "Bundle",
+"label" : "NCBO Bioscientist",
+"title" : "NCBO Bioscientist",
+"domain" : [ "Life Sciences", "Bioscience" ],
+"category" : "Bundle",
+"icon": "i/bundle.png",
+"creator" : "bendai",
+"homepage" : "http://bioontology.org/",
+"creatorlink" : "http://open-science.zepheira.com/market/people/bendai/",
+"description" : "The NCBO Bioscientist bundle includes The National Center for Biomedical Ontologies bioportal analytics, customized lenses and customized result-set display designed to support the needs of NCBO's resarch scientists.",
+"language" : "English",
+"date" : "October 10, 2008",
+"isodate" : "2008-10-31",
+"price": 75.00
+}
+]
+}

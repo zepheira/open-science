@@ -1,0 +1,50 @@
+{
+"items" :      [
+{
+"id" : "http://open-science.zepheira.com/market/member/bendai/",
+"memberlink" : "http://open-science.zepheira.com/market/member/bendai/",
+"usericon" : "http://open-science.zepheira.com/market/avatar.png",
+"type" : "Member",
+"position" : "Scientist",
+"label" : "http://open-science.zepheira.com/market/member/bendai/",
+"nick" : "bendai",
+"fname" : "Benjamin",
+"lname" : "Dai",
+"email" : "ben@stanford.edu",
+"description" : "Hi, I'm Ben.",
+"language" : "English",
+"joindate" : "October 10, 2008",
+"joinisodate" : "2008-10-31"
+},
+{
+"id" : "http://open-science.zepheira.com/market/member/forbes/",
+"memberlink" : "http://open-science.zepheira.com/market/member/forbes/",
+"usericon" : "http://open-science.zepheira.com/market/avatar.png",
+"type" : "Member",
+"label" : "http://open-science.zepheira.com/market/member/forbes/",
+"nick" : "forbes",
+"position" : [ "Faculty", "Scientist" ],
+"fname" : "Forbes",
+"lname" : "Dewey",
+"email" : "forbes@mit.edu",
+"description" : "I'm a professor in MIT's Mechanical Engineering Department and hold joint appointments in the Division of Bioengineering and Environment Health and the Division of Health Science and Technology.",
+"language" : "English",
+"joindate" : "October 10, 2008",
+"joinisodate" : "2008-10-31"
+},
+{
+"id" : "http://open-science.zepheira.com/market/member/nigham/",
+"usericon" : "http://open-science.zepheira.com/market/avatar.png",
+"memberlink" : "http://open-science.zepheira.com/market/member/nigham/",
+"type" : "Member",
+"label" : "http://open-science.zepheira.com/market/member/nigham/",
+"nick" : "nigham",
+"position" : "Student",
+"email" : "forbes@mit.edu",
+"description" : "I'm Nigham.",
+"language" : "English",
+"joindate" : "October 10, 2008",
+"joinisodate" : "2008-10-31"
+}
+]
+}

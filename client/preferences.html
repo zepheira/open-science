@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+ <head>
+  <!-- Copyright 2008-2009 Zepheira LLC -->
+  <!-- jquery.scroll REQUIRES a DTD declaration -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/os.css" />
+  <link rel="stylesheet" type="text/css" href="css/annotate.css" />
+  <link rel="stylesheet" type="text/css" href="css/preferences.css" />
+
+  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-slide.js"></script>
+  <script type="text/javascript" src="js/jquery.scroll.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/jquery.json-1.3.min.js"></script>
+  <script type="text/javascript" src="js/os.js"></script>
+  <script type="text/javascript" src="js/annotate.js"></script>
+  <script type="text/javascript" src="js/content-sources-query.js"></script>
+  <script type="text/javascript" src="js/available-apps-query.js"></script>
+  <script type="text/javascript" src="js/available-lenses-query.js"></script>
+  <script type="text/javascript" src="js/preferences.js"></script>
+
+  <title>Open Science</title>
+ </head>
+ <body>
+
+  <h1>Open Science</h1>
+
+  <div id="user-info">
+   <p><span class="fake-link" title="[not a link] Go to your account">scientist@research.edu</span> &middot;
+   <span class="fake-link" title="[not a link] Log out of your Open Science account">Log Out</span> &middot;
+   <span class="fake-link" title="[not a link] Learn more about Open Science data sources">Sources</span> &middot;
+   <span class="fake-link" title="[not a link] Find answers to your questions">Help</span></p>
+   <p id="preferences">Preferences <span class="services">&middot;</span>
+   <span class="fake-link services" title="[not a link] View and manage your applications">My Applications</span> <span class="services">&middot;</span>
+   <a class="services" href="market.html" title="Go to the marketplace to view and purchase additional applications">Marketplace</a></p>
+  </div>
+
+  <form id="preferences-form">
+    <table><tbody>
+    <tr><td class="section-heading" colspan="3">
+     <h3>General Preferences</h3>
+    </td></tr>
+
+    <tr><td>
+     <h4 title="Which sources to search through by default">Sources</h4>
+     <ul id="content-sources">
+     </ul>
+     <ul>
+      <li id="add-source"><input type="button" id="add-source-button" value="Add New Source" /></li>
+     </ul>
+    </td><td class="top-pref">
+     <h4 title="What kind of media to include in searches">Media</h4>
+     <ul>
+      <li><input type="checkbox" name="type-images" id="type-images" checked="checked" /><label for="type-images">Images</label></li>
+      <li><input type="checkbox" name="type-video" id="type-audio" checked="checked" /><label for="type-audio">Audio</label></li>
+      <li><input type="checkbox" name="type-video" id="type-video" checked="checked" /><label for="type-video">Video</label></li>
+     </ul>
+    </td><td class="top-pref">
+     <h4 class="services" title="Which application to use initially on search results">My Applications</h4>
+     <ul class="services" id="results-apps">
+     </ul>
+    </td></tr>
+
+    <tr><td class="section-heading" colspan="3">
+     <h3>Result Display Preferences</h3>
+    </td></tr>
+
+    <tr><td>
+     <h4 title="Which result narrowing facets to show by default">Default Facets</h4>
+     <ul>
+      <li><input type="checkbox" name="facet-date" id="facet-date" checked="checked" /><label for="facet-date">Publication Date</label></li>
+      <li><input type="checkbox" name="facet-authors" id="facet-authors" checked="checked" /><label for="facet-authors">Authors</label></li>
+      <li><input type="checkbox" name="facet-subject" id="facet-subject" checked="checked" /><label for="facet-subject">Subject</label></li>
+     </ul>
+    </td>
+    <td>
+     <h4 title="Which enriched result information to show on individual search results">Enriched Results</h4>
+     <ul>
+      <li><input type="checkbox" name="enrich-date" id="enrich-date" checked="checked" /><label for="enrich-date">Publication Date</label></li>
+      <li><input type="checkbox" name="enrich-authors" id="enrich-authors" checked="checked" /><label for="enrich-authors">Authors</label></li>
+      <li><input type="checkbox" name="enrich-source" id="enrich-source" /><label for="enrich-source">Source</label></li>
+      <li><input type="checkbox" name="enrich-journal" id="enrich-journal" /><label for="enrich-journal">Journal Cover</label></li>
+      <li><input type="checkbox" name="enrich-frame" id="enrich-frame" checked="checked" /><label for="enrich-frame">Video Frame</label></li>
+     </ul>
+    </td>
+    <td>
+     <h4 title="Which result lens to use by default">Lens</h4>
+     <ul id="results-lens">
+     </ul>
+    </td></tr>
+
+    <tr><td class="section-heading" colspan="3">
+     <h3>My Research</h3>
+    </td></tr>
+
+    <tr><td id="research-prefs">
+     <h4 title="The areas of research you would normally be searching in">Research Areas</h4>
+     <ul>
+     <li><input type="checkbox" id="research-area-bio" class="expands" /><label for="research-area-bio" class="expands">Biomedical</label>
+      <ul>
+       <li><input type="checkbox" id="ra-6" /><label for="ra-6">Aging</label></li>
+       <li><input type="checkbox" id="ra-5" /><label for="ra-5">Cancer</label></li>
+       <li><input type="checkbox" id="ra-8" /><label for="ra-8">Cellular Biology</label></li>
+       <li><input type="checkbox" id="ra-7" class="expands" /><label class="expands" for="ra-7">Endocrinology</label>
+        <ul>
+         <li><input type="checkbox" id="ra-15" /><label for="ra-15">Diabetes</label></li>
+         <li><input type="checkbox" id="ra-16" /><label for="ra-16">Neuroendocrinology</label></li>
+        </ul>
+       </li>
+       <li><input type="checkbox" id="ra-12" /><label for="ra-12">Genetics</label></li>
+       <li><input type="checkbox" id="ra-9" /><label for="ra-9">Molecular Biology</label></li>
+       <li><input type="checkbox" id="ra-11" /><label for="ra-11">Neuroscience</label></li>
+       <li><input type="checkbox" id="ra-10" class="expands" /><label class="expands" for="ra-10">Pharmacology</label>
+        <ul>
+         <li><input type="checkbox" id="ra-14" /><label for="ra-14">Psychopharmacology</label></li>
+        </ul>
+       </li>
+       <li><input type="checkbox" id="ra-1" class="expands" /><label class="expands" for="ra-1">Public Health</label>
+       <ul>
+        <li><input type="checkbox" id="ra-4" /><label for="ra-4">Behavioral Health</label></li>
+        <li><input type="checkbox" id="ra-2" /><label for="ra-2">Epidemiology</label></li>
+        <li><input type="checkbox" id="ra-3" /><label for="ra-3">Preventative Medicine</label></li>
+       </ul></li>
+       <li><input type="checkbox" id="ra-13" /><label for="ra-13">Virology</label></li>
+      </ul></li>
+     </ul>
+    </td>
+    <td>
+     <ul>
+      <li><input type="checkbox" id="research-area-astro" /><label for="research-area-astro">Astronomy</label></li>
+      <li><input type="checkbox" id="research-area-chem" /><label for="research-area-chem">Chemistry</label></li>
+      <li><input type="checkbox" id="research-area-cs" /><label for="research-area-cs">Computer Science</label></li>
+      <li><input type="checkbox" id="research-area-env" /><label for="research-area-env">Environmental Science</label></li>
+     </ul>
+    </td>
+    <td>
+     <ul>
+      <li><input type="checkbox" id="research-area-life" /><label for="research-area-life">Life Science</label></li>
+      <li><input type="checkbox" id="research-area-math" /><label for="research-area-math">Mathematics</label></li>
+      <li><input type="checkbox" id="research-area-matsci" /><label for="research-area-matsci">Materials Science</label></li>
+      <li><input type="checkbox" id="research-area-phys" /><label for="research-area-phys">Physics</label></li>
+     </ul>
+    </td></tr>
+
+    <tr><td id="experts-prefs">
+     <h4 title="Give weight to favored experts in your chosen research area">Favorite Experts</h4>
+     <p id="experts-starter"><em>First choose a research field.</em></p>
+     <ul id="biomedical-experts">
+      <li><input type="checkbox" id="name-3" /><label for="name-3">Steven P. Balk</label></li>
+      <li><input type="checkbox" id="name-1" /><label for="name-1">Atul J. Butte</label></li>
+      <li><input type="checkbox" id="name-2" /><label for="name-2">Mark A. Musen</label></li>
+      <li><input type="checkbox" id="name-4" /><label for="name-4">Hazel L. Sive</label></li>
+      <li><input type="checkbox" id="name-5" /><label for="name-5">Terry Orr-Weaver</label></li>
+     </ul>
+    </td>
+    <td id="add-experts-widget">
+     <span class="fake-link" title="[not a link] Open up a widget for locating more favorite experts">Find more experts &raquo;</span>
+    </td>
+    <td>
+     <h4 title="Preferred collaboration tools">Collaboration</h4>
+     <ul>
+      <li><input type="radio" name="collab" id="col-delicious" /> <label for="col-delicious"><img alt="" src="i/delicious.20.gif" class="collab-logo" /> del.icio.us</label></li>
+      <li><input type="radio" name="collab" id="col-2collab" checked="checked" /> <label for="col-2collab"><img alt="" src="i/2collablogo.gif" class="collab-logo" /> 2collab</label></li>
+      <li><input type="radio" name="collab" id="col-citeulike" /> <label for="col-citeulike"><img alt="" src="i/citeulike.gif" class="collab-logo" /> citeulike</label></li>
+     </ul>
+    </td></tr>
+
+    <tr><td colspan="3" id="submit-row">
+     <input id="saver" type="submit" disabled="true" value="Save Preferences" />
+     <input id="resetter" type="reset" disabled="true" value="Clear Preferences" />
+     &#160;&#160;<a href="javascript:history.back(-1)" title="Back to search [mirrors the back button for now]">Back to search</a>
+    </td></tr></tbody></table>
+  </form>
+
+  <div id="user" class="annotations">
+   <div>You can personalize your search options and have them saved across search sessions through this form.  Note that for this mockup system, none of the changes here will be saved across page visits (<a href="?annotate=off">disable tutorial</a>).</div>
+   <div an:rel="td.section-heading:eq(0)">General preferences determine search results.</div>
+   <div an:rel="td h4:eq(0)">Mouse over a sub-section heading to view more details on what the preferences control.</div>
+   <div an:rel="#add-source">You can easily add a new Open Science compliant data source - just provide a name and an endpoint.</div>
+   <div an:rel="tr:eq(1) td:eq(1),tr:eq(3) td:eq(2)">Changing which media types are included also changes which types of results views are available.</div>
+   <div an:rel="td.section-heading:eq(1)">Result display preferences influence the appearance of the search results page, including which facets to display, how to enrich results, and which view to begin with.</div>
+   <div an:rel="td.section-heading:eq(2)">My research preferences provide personalization to search results, focusing on the field or fields you work in.</div>
+   <div an:rel="#research-area-bio" an:trigger="researchAreaTrigger">Selecting a major research area provides sub-areas for further refinement of your field.</div>
+   <div an:rel="tr:eq(6) td:eq(0),#add-experts-widget" an:trigger="expertTrigger">After a research area is selected, you can provide further personalization information by selecting whose expertise within that field you trust.  You can find and add more experts not listed here, though not in this mockup.</div>
+   <div an:trigger="endTrigger">The tutorial continues by visiting the marketplace, linked in the upper right corner as <em>Marketplace</em>.</div>
+  </div>
+
+  <div id="footer">
+  </div>
+
+  <div id="efooter">
+  Copyright &copy; 2009 Zepheira, LLC
+  </div>
+ </body>
+</html>

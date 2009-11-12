@@ -1,0 +1,449 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+#search {
+    background: transparent;
+    padding: 0 0 1em;
+    text-align: center;
+    width: 100%;
+}
+
+.exhibit-facet {
+    background: #fff;
+}
+
+#facets {
+    font-size: 0.8em;
+    padding: 0.5em 0.5em 0;
+    vertical-align: top;
+    width: 18%;
+}
+
+#facet-display-control-title {
+    background: url('../i/twisty-close.gif') top left no-repeat #fff;
+    color: blue;
+    cursor: pointer;
+    font-weight: normal;
+    height: 13px;
+    margin: 1px 0 4px;
+    padding: 0 0 1px 15px;
+    text-align: left;
+}
+
+#facet-display-control-title.open {
+    background: url('../i/twisty-open.gif') top left no-repeat;
+}
+
+#facet-display-controls {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    left: 18px;
+    margin: 0;
+    opacity: 0.9;
+    padding: 10px 10px 10px 5px;
+    position: absolute;
+    text-align: left;
+    z-index: 50;
+}
+
+#taxonomy-facet-switcher {
+    background: #fff;
+    cursor: pointer;
+    color: blue;
+    float: right;
+    padding-top: 8px;
+}
+
+#taxonomy-facet {
+    margin-top: 5px;
+    clear: none;
+}
+
+#marketplace-widget {
+    background: #efeeef;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
+    padding: 0 1%;
+    vertical-align: top;
+    width: 15%;
+}
+
+#marketplace-widget p,
+h4.app-title {
+    color: #333;
+    font-size: 0.8em;
+    margin: 0.5em 0;
+    text-align: center;
+}
+
+#marketplace {
+    background: #efeeef;
+}
+
+#application-menu li {
+    background: #fff;
+    text-align: center;
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    height: 95px;
+    font-size: 0.8em;
+}
+
+#current-app {
+    -moz-border-radius: 7px;
+    background: #f6f6f6;
+    border: 2px solid #999;
+    cursor: pointer;
+    padding: 0.4em 1.1em 0 0;
+    height: 95px;
+    text-align: center;
+    font-size: 0.8em;    
+}
+
+#current-app.closed {
+    background: url(../i/dropdown.gif) center right no-repeat;
+}
+
+#current-app.open {
+    background: url(../i/slideup.gif) center right no-repeat;
+}
+
+#application-menu {
+    border-top: 1px solid #ddd;
+    display: none;
+    opacity: 0.9;
+    position: absolute;
+    overflow: auto;
+    height: 50%;
+    width: 12em;
+    z-index: 500;
+}
+
+#application-menu li:hover {
+    background: #417BD9;
+    cursor: pointer;
+}
+
+#application-menu .current-app {
+    background: #ddd;
+}
+
+.which-application {
+    background: #ed8 ! important;
+}
+
+.which-application-on {
+    background: #ed8;
+}
+
+#active-application-cloud,
+#active-application-list {
+    font-size: 0.8em;
+    background: transparent;
+}
+
+#active-application-switcher {
+    font-size: 0.8em;
+    text-align: right;
+    text-decoration: none;
+}
+
+#facets > div {
+    background: #fff;
+}
+
+#related-results {
+    background: #fff;
+    font-size: 0.8em;
+    margin: 0 auto;
+    text-align: center;
+    padding: 0 0 3px;
+    width: 50%;
+}
+
+#results-info {
+    background: #ffee77;
+    border-top: 2px solid #ff8807;
+    font-size: 0.8em;
+    padding: 0.5em 3em 1em 0;
+    text-align: right;
+}
+
+ol.exhibit-tileView-body li {
+    background: #fff;
+}
+
+#results-format {
+    background: #fe7;
+    float: left;
+    padding: 0 0 0 5px;
+}
+
+.results-format-link {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.current-format {
+    font-weight: bold;
+}
+
+#results-total {
+    display: none;
+}
+
+#facet-reset {
+    display: none;
+    float: right;
+}
+
+.reset-results {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+#results-set {
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 0.9em;
+}
+
+div.prioritize-widget {
+    background: #fff;
+    padding: 8px;
+}
+
+.prioritize-widget,
+.prioritize-up,
+.prioritize-down,
+.prioritize-up-selected,
+.prioritize-down-selected,
+.ratings-widget {
+    float: right;
+    height: 15px;
+    line-height: 15px;
+}
+
+.prioritize-up,
+.prioritize-down,
+.prioritize-up-selected,
+.prioritize-down-selected {
+    cursor: pointer;
+    padding: 1px ! important;
+    width: 15px;
+}
+
+.prioritize-up {
+    background: url('../i/up.png') top left no-repeat;
+}
+
+div.prioritize-up:hover,
+.prioritize-up-selected {
+    background: url('../i/up-hover.png') top left no-repeat;
+}
+
+.prioritize-down {
+    background: url('../i/down.png') top left no-repeat;
+}
+
+div.prioritize-down:hover,
+.prioritize-down-selected {
+    background: url('../i/down-hover.png') top left no-repeat;
+}
+
+.video-link {
+    cursor: pointer;
+}
+
+.result-share {
+    vertical-align: middle;
+    width: 29px;
+    height: 20px;
+}
+
+.result-foot {
+    margin: 0 0 1em 0.75em;
+}
+
+.result-source {
+    color: #0a0;
+}
+
+.result-link {
+    color: #0a0;
+}
+
+.result-date,
+.result-similar {
+    color: #888;
+    font-size: 0.9em;
+}
+
+.result-authors span span {
+    color: #417BFF;
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.result-similar {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
+.result-cover {
+    padding: 0.75em 0 0;
+}
+
+div.exhibit-toolboxWidget-popup {
+    display: none;
+}
+
+div.exhibit-collectionView-header-sortControls {
+    text-align: left;
+}
+
+div.exhibit-collectionView-header > div:first-child > span,
+div.exhibit-views-header > div:first-child {
+    display: none;
+}
+
+div.exhibit-facet-header-filterControl {
+    width: 2.2em;
+}
+
+span.exhibit-collectionView-header-groupControl {
+    display: none;
+}
+
+div.exhibit-collectionView-footer {
+    display: none;
+}
+
+div.exhibit-menu-popup {
+    font-size: 0.85em;
+    background: #fff;
+    opacity: 0.9;
+}
+
+a.exhibit-menu-item:hover div {
+    background: #417BD9;
+    color: #fff;
+}
+
+.hide-functional,
+.hide-initial {
+    display: none;
+}
+
+div.exhibit-viewPanel-viewSelection {
+    display: none;
+}
+
+div.exhibit-collectionView-header {
+    background: #fff;
+}
+
+.timeline-copyright {
+    opacity: 0.2;
+}
+
+.timeline-container {
+    border: 1px solid #ccc;
+    font-family: "Verdana", sans-serif ! important;
+    font-size: 0.95em ! important;
+    margin: 10px 0 0 ! important;
+}
+
+.timeline-bubble-body {
+    font-size: 0.9em;
+    line-height: 1.4em;
+}
+
+.timeline-band-layer-inner {
+    color: blue;
+}
+
+.timeline-band-0 .timeline-ether-bg {
+    background-color: #fff;
+}
+
+.timeline-band-1 .timeline-ether-bg {
+    background-color: #fe7;
+}
+
+.timeline-band-2 .timeline-ether-bg {
+    background-color: #aaa;
+}
+
+.timeline-band-3 .timeline-ether-bg {
+    background-color: #999;
+}
+
+.timeline-event-tape,
+.timeline-small-event-tape,
+.timeline-small-event-icon {
+    background-color: #00f;
+}
+
+div.exhibit-cloudFacet-body {
+    border: 1px solid #ddd;
+}
+
+.exhibit-cloudFacet-value {
+    color: blue;
+}
+
+span.exhibit-cloudFacet-value-selected {
+    background: #ffee77;
+    text-decoration: none;
+}
+
+#market-link {
+    font-size: 0.8em;
+    text-align: center;
+}
+
+.whatizit-umls {
+    margin: 0.5em 0 0.5em 0.75em;
+    font-style: italic;
+}
+
+#recommended-app,
+#featured-app {
+    cursor: pointer;
+}
+
+#status-dialog {
+    background: #efefef;
+    font-size: 0.85em;
+    line-height: 1.3em;
+    min-height: 6em;
+    opacity: 0.8;
+    padding: 4px;
+    position: absolute;
+    right: 10px;
+    top: 45px;
+    width: 20%;
+}
+
+#status-dialog #overall-status {
+    font-size: 1.1em;
+    font-weight: bold;
+    background: #eee;
+}
+
+#status-dialog #overall-status span {
+    display: none;
+}
+
+#status-dialog #overall-status span.locating {
+    display: inline;
+}
+
+#status-dialog .fail {
+    color: #f00;
+}
+

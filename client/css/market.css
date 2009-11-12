@@ -1,0 +1,264 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+#results-body {
+    font-size: 0.9em;
+    width: 80%;
+    margin: 0 10%;
+    vertical-align: top;
+}
+
+#facets {
+    background: #eee;
+    border-left: 1px solid #ddd;
+    font-size: 0.9em;
+    width: 27%;
+    padding: 1.5%;
+    vertical-align: top;
+}
+
+#results-set {
+    padding: 1% 0;
+}
+
+ol.exhibit-tileView-body > li > div {
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+    padding: 1em 0;
+}
+
+ol.exhibit-tileView-body > li {
+    background: #fff;
+}
+
+.app {
+    width: 100%;
+}
+
+.add-widget {
+    background: url('../i/add-app.png') top left no-repeat;
+    cursor: pointer;
+    float: right;
+    height: 33px;
+    width: 100px;
+}
+
+.add-widget-actions {
+    display: none;
+    border: 1px solid #ddd;
+    background: #fff;
+    text-align: left;
+    position: absolute;
+    color: blue;
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.add-widget-actions li {
+    padding: 3px;
+}
+
+.add-widget-actions li:hover {
+    color: #fff;
+    background: #417BD9;
+}
+
+.preview-widget {
+    cursor: pointer;
+}
+
+.purchased {
+    background: url('../i/purchased.png') top left no-repeat;
+    float: right;
+    height: 33px;
+    width: 100px;
+}
+
+.if-purchased {
+    display: none;
+}
+
+div.added-widget {
+    background: url('../i/remove-app.png') top left no-repeat;
+}
+
+.app .icon {
+    text-align: center;
+    vertical-align: top;
+    width: 150px;
+}
+
+.app .info {
+    vertical-align: top;
+}
+
+.app-creator {
+    color: #333;
+    font-size: 0.85em;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.app-creator a, .app-creator a:visited {
+    color: #444;
+}
+
+.app-description {
+    padding: 0 1% 0 0;
+    color: #222;
+    margin: 1em 0;
+}
+
+.app-ratings {
+    background: #fff;
+    color: #555;
+    font-size: 0.9em;
+    padding: 1em 0;
+    text-align: center;
+    vertical-align: top;
+}
+
+.app-downloads {
+    background: #fff;
+    color: #555;
+    font-size: 0.95em;
+    padding: 1em 0;
+}
+
+.app-price {
+    background: #fff;
+    color: #777;
+    font-size: 1.2em;
+    padding: 1em 0.5em 1em 0;
+    text-align: right;
+}
+
+.app-price-tag {
+    line-height: 33px;
+}
+
+.app-pick {
+    clear: both;
+    float: right;
+}
+
+.app-pick img {
+    height: 50px;
+    margin-top: 10px;
+    margin-right: 5px;
+    width: 50px;
+}
+
+.app-tags {
+    margin: 0.5em 0;
+}
+
+div.exhibit-toolboxWidget-popup {
+    display: none;
+}
+
+div.exhibit-flowingFacet {
+    margin: 1em 0 0;
+}
+
+div.exhibit-cloudFacet-body {
+    border: 0 !important;
+}
+
+.exhibit-cloudFacet-value {
+    color: blue;
+}
+
+span.exhibit-cloudFacet-value-selected {
+    background: #ffee77;
+    text-decoration: none !important;
+}
+
+div.exhibit-collectionView-header > div {
+    background: #fe7;
+    border-bottom: 2px solid #ff8807;
+}
+
+#rss {
+    background: url('../i/rss.png') top right no-repeat;
+    cursor: pointer;
+    float: right;
+    height: 14px;
+    margin: -20px 1em 0 0;
+    width: 14px;
+}
+
+div.exhibit-collectionView-header >div.exhibit-collectionView-header-sortControls {
+    background: #fff;
+    border-bottom: 0;
+    text-align: left;
+}
+
+span.exhibit-collectionView-header-groupControl {
+    display: none;
+}
+
+.cart-remove {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
+
+.cart-price {
+    text-align: right;
+}
+
+#cart-section {
+    background: #ccc;
+    border: 1px solid #aaa;
+    padding: 1em 0.4em;
+}
+
+#cart-title {
+    cursor: pointer;
+}
+
+#cart {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    opacity: 0.95;
+    margin-top: 2px;
+    padding: 1em;
+    position: absolute;
+    width: 20%;
+}
+
+#cart td {
+    padding: 5px;
+}
+
+#cart-checkout {
+    float: right;
+    color: blue;
+    cursor: pointer;
+    display: none;
+}
+
+.hide-functional {
+    display: none;
+}
+
+#dev-graphic {
+    float: left;
+}
+
+#developers {
+    float: left;    
+    font-size: 0.95em;
+}
+
+#developers li {
+    float: left;
+}
+
+#pref-reset {
+    text-align: center;
+    width: 100%;
+}
+

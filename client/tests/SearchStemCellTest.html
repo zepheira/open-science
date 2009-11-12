@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>SearchStemCellTest</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">SearchStemCellTest</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/preferences.html</td>
+	<td></td>
+</tr>
+<tr>
+        <td>waitForEditable</td>
+        <td>resetter</td>
+        <td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>resetter</td>
+	<td></td>
+</tr>
+<tr>
+	<td>refreshAndWait</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>app-whatizitproteindiseaseumls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>sources-pubmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>sources-pubmed</td>
+	<td></td>
+</tr>
+<tr>
+        <td>waitForEditable</td>
+        <td>saver</td>
+        <td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>saver</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>app-whatizitproteindiseaseumls</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForElementPresent</td>
+	<td>sources-pubmed</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>q</td>
+	<td>stem cells</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@value='Search']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotText</td>
+	<td>//span[@class='exhibit-collectionSummaryWidget-count']</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>status-dialog</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id=&quot;source-facet&quot;]/div[2]/div[1]/div[1]/a</td>
+	<td>PubMed</td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//div[@id=&quot;source-facet&quot;]/div[1]/div[1]/div[2]/a</td>
+	<td>PubMed</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='exhibit-view-panel']/div[1]/div[2]/div[2]/ol/li[1]/div/h3/a/span/span</td>
+	<td></td>
+</tr>
+<tr>
+        <td colspan="3">Permissions keeps this test from being able to access frames; manually check selecting Reflect returns a reflected document.</td>
+</tr>
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,215 @@
+<html>
+ <head>
+  <!-- Copyright 2008-2009 Zepheira LLC -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/os.css" />
+  <link rel="stylesheet" type="text/css" href="css/annotate.css" />
+  <link rel="stylesheet" type="text/css" href="css/search.css" />
+
+  <script type="text/javascript" src="http://exhibit.zepheira.com/exhibit/2.2.0/exhibit-api.js?autoCreate=false&views=timeline"></script>
+  <script type="text/javascript" src="js/exhibit-mod.js"></script>
+  <!-- above exhibit loads jquery 1.2.1, but that's not good enough -->
+  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-slide.js"></script>
+  <script type="text/javascript" src="js/jquery.scroll.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/jquery.json-1.3.min.js"></script>
+
+  <script type="text/javascript" src="js/os.js"></script>
+  <script type="text/javascript" src="js/annotate.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/timeline-theme.js"></script>
+  <script type="text/javascript" src="js/search-query-status.js"></script>
+  <script type="text/javascript" src="js/search-query.js"></script>
+  <script type="text/javascript" src="js/market-query.js"></script>
+  <script type="text/javascript" src="js/content-sources-query.js"></script>
+  <script type="text/javascript" src="js/available-apps-query.js"></script>
+  <script type="text/javascript" src="js/results.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/search-results.css" />
+
+  <title>Open Science :: Content Integration</title>
+ </head>
+ <body>
+
+  <h1>Open Science</h1>
+
+  <div id="user-info">
+   <p><span class="fake-link" title="[not a link] Go to your account">scientist@research.edu</span> &middot;
+   <span class="fake-link" title="[not a link] Log out of your Open Science account">Log Out</span> &middot;
+   <span class="fake-link" title="[not a link] Learn more about Open Science data sources">Sources</span> &middot;
+   <span class="fake-link" title="[not a link] Find answers to your questions">Help</span></p>
+   <p id="preferences"><a href="preferences.html" title="Set your search preferences">Preferences</a> <span class="services">&middot;</span>
+   <span class="fake-link services" title="[not a link] View and manage your applications">My Applications</span> <span class="services">&middot;</span>
+   <a class="services" href="market.html" title="Go to the marketplace to view and purchase additional applications">Marketplace</a></p>
+  </div>
+
+  <form id="search" action="search.html" method="get">
+   <input id="q" name="q" type="text" size="60" />
+   <input type="submit" value="Search" />
+   <div id="suggestions">
+    <p>stem cells</p>
+    <p>pluripotent stem cells</p>
+    <p>unipotent stem cells</p>
+   </div>
+   <h3 id="advanced-search-title" class="hide-initial">Search Refinement Options</h3>
+   <div id="advanced-search-options">
+    <table><tbody><tr><td>
+    <h4>Sources</h4>
+    <ul id="content-sources">
+    </ul>
+    </td><td>
+    <h4>Media</h4>
+    <ul>
+     <li><input type="checkbox" name="type-images" id="type-images" checked="checked" /><label for="type-images">Images</label></li>
+     <li><input type="checkbox" name="type-video" id="type-audio" checked="checked" /><label for="type-audio">Audio</label></li>
+     <li><input type="checkbox" name="type-video" id="type-video" checked="checked" /><label for="type-video">Video</label></li>
+    </ul>
+    </td><td id="apps">
+    <h4>Application</h4>
+     <ul id="results-apps">
+      <li><input type="radio" id="app-1" name="app" /><label for="app-1"><em>None</em></label></li>
+     </ul>
+    </td></tr></tbody></table>
+   </div>
+  </form>
+
+  <p id="related-results">Suggested searches: <a href="?q=organogenesis">organogenesis</a>, <a href="?q=osteogenesis">osteogenesis</a></p>
+
+  <p id="results-info">
+    <span id="results-format">Result lenses:
+    <select id="results-format-select">
+    </select>
+    </span>
+    <span id="results-count"></span> results <span id="results-total">of <span id="results-total-count"></span> originally (<span class="reset-results">reset filters</span>)</span>
+  </p>
+
+  <table id="results-body"><tbody><tr>
+  <td id="facets">
+  <div id="facet-reset"><span class="reset-results">reset filters</span></div>
+  <h3 id="facet-display-control-title" class="hide-initial">Choose Facets</h3>
+  <div id="facet-display-controls">
+   <ul>
+    <li><input type="checkbox" id="date-facet-check" checked="checked" /><label for="date-facet-check">Date</label></li>
+    <li><input type="checkbox" id="authors-facet-check" checked="checked" /><label for="authors-facet-check">Authors</label></li>
+    <li><input type="checkbox" id="subject-facet-check" checked="checked" /><label for="subject-facet-check">Subject</label></li>
+   </ul>
+  </div>
+  <span class="exhibit-flowingFacet-header-title hide-initial">Search within these results</span>
+  <div ex:role="facet" ex:facetClass="TextSearch" ex:expression=".title,.authors,.description" id="text-search-facet"></div>
+  <div ex:role="facet" ex:expression=".dataSource" ex:facetLabel="Source" ex:showMissing="false" ex:scroll="false" id="source-facet"></div>
+  <div ex:role="facet" ex:expression=".pubYear" ex:sortDirection="reverse" ex:facetLabel="Date" ex:showMissing="false" id="date-facet"></div>
+  <div ex:role="facet" ex:expression=".authors" ex:facetLabel="Authors" ex:showMissing="false" ex:sortMode="count" id="authors-facet"></div>
+  <div ex:role="facet" ex:expression=".subject" ex:facetLabel="Subject" ex:showMissing="false" ex:sortMode="count" id="subject-facet"></div>
+  </td>
+  <td id="results-set">
+  <div ex:role="exhibit-collection" ex:itemTypes="Publication,Video"></div>
+  <div id="exhibit-view-panel" ex:role="viewPanel">
+    <div ex:role="lens" ex:itemTypes="Video" class="hide-functional">
+     <div class="prioritize-widget">
+      <div class="prioritize-down" title="Give a thumbs down rating to this result"> </div>
+      <div class="prioritize-up" title="Give a thumbs up rating to this result"> </div>
+     </div>
+     <h3 class="result-main-link"><img ex:src-subcontent="i/video.png" style="vertical-align: top; height: 15px; width: 15px;" alt="Video" title="Video result" /><a ex:href-subcontent="result.html?url={{.escaped_link}}&uri={{.resultURI}}"><span ex:content=".title"></span></a></h3>
+     <p class="result-date"><span ex:content=".pubDate"></span> <span ex:if-exists=".authors">by</span> <span class="result-authors" title="More from this author"><span ex:content=".authors"></span></span></p>
+     <table><tbody><tr>
+      <td style="vertical-align: top;"><span class="video-link" title="[not a real link] Watch this video now"><img ex:src-subcontent="{{.snapshot}}" style="width: 80px; height: 60px;" /></span></td>
+      <td style="vertical-align: top;"><blockquote><span ex:content=".description"></span></blockquote></td>
+     </tr></tbody></table>
+
+     <p class="result-foot"><span class="result-source"><span ex:content=".dataSource"></span></span> - <span class="result-link"><span ex:content=".link"></span></span> - <span class="result-similar" title="[not a real link] View similar results">similar results</span> - <span class="fake-link" title="[not a link] Bookmark and share in 2collab"><img src="i/2collablogo.gif" class="result-share" /></span></p>
+    </div>
+
+    <div ex:role="lens" ex:itemTypes="Publication" class="hide-functional">
+     <div class="prioritize-widget">
+      <div class="prioritize-down" title="Give a thumbs down rating to this result"> </div>
+      <div class="prioritize-up" title="Give a thumbs up rating to this result"> </div>
+     </div>
+     <h3 class="result-main-link"><a ex:href-subcontent="result.html?url={{.escaped_link}}&uri={{.resultURI}}"><span ex:content=".title"></span></a></h3>
+     <p class="result-date"><span ex:content=".pubDate"></span> <span ex:if-exists=".authors">by</span> <span class="result-authors" title="More from this author"><span ex:content=".authors"></span></span></p>
+     <table><tbody><tr><td style="vertical-align: top;" class="result-cover">
+     <div ex:if="exists(.journal_cover)">
+       <img ex:src-content=".journal_cover" alt="Journal cover" />
+     </div>
+     </td><td style="vertical-align: top;">
+     <blockquote><span ex:content=".description"></span></blockquote>
+     </td></tr></tbody></table>
+     <p class="result-foot"><span class="result-source"><span ex:content=".dataSource"></span></span> - <span class="result-link"><span ex:content=".link"></span></span> - <span class="result-similar" title="[not a real link] View similar results">similar results</span> - <span class="fake-link" title="[not a link] Bookmark and share in 2collab"><img src="i/2collablogo.gif" class="result-share" /></span></p>
+    </div>
+
+    <div ex:role="view"
+          ex:label="List"
+          ex:type="TileView"
+          ex:orders=".relevance"
+          ex:directions="ascending"
+          ex:showAll="true"
+          ex:grouped="false"
+          ex:possibleOrders=".pubDate,.relevance"
+          ex:possibleDirections="descending,ascending">
+    </div>
+
+    <div ex:role="view"
+         ex:label="Timeline"
+         ex:viewClass="Timeline"
+         ex:configuration="timelineConfig"
+         ex:start=".pubDate">
+    </div>
+
+  </div>
+  </td>
+  <td id="marketplace-widget" class="services">
+   <h4 class="app-title">My Applications</h4>
+   <p id="current-app" class="closed"><em>None</em></p>
+   <ul id="application-menu">
+    <li rel="none" class="current-app"><em>None</em></li>
+   </ul>
+   <div id="marketplace">
+   <h4 class="app-title">Recommended</h4>
+   <p>Based on your search, you may be interested in the following application:</p>
+   <p id="recommended-app" title="[not a real link] Open Science Welkin can provide a graph view of your search results for stem cells"><img src="i/welkin_logo-s.png" /><br />Open Science Welkin</p>
+   <h4 class="app-title">Editor's Pick</h4>
+   <p id="featured-app" title="[not a real link] illumin8 is a workflow solution that helps researches answer complex questions faster "><img src="i/illumin8.gif" style="width: 94px; height: 38px;" /><br />illumni8</p>
+   <p id="market-link"><a href="market.html">Look for more applications</a></p>   </div>
+  </td>
+  </tr></tbody></table>
+
+  <div id="status-dialog">
+    <p id="overall-status">
+     <span class="locating">Locating...</span>
+     <span class="searching">Searching...</span>
+     <span class="tagging">Tagging...</span>
+     <span class="done">Done.</span>
+    </p>
+    <ul>
+    </ul>
+  </div>
+
+  <div id="user" class="annotations">
+   <div>These are the results of searching for <em>stem cells</em> in Open Science.  There are several ways to further refine or reframe your search results. (<a href="?q=stem+cells&amp;annotate=off">disable tutorial</a>)</div>
+   <div an:rel="#related-results" an:trigger="preFacetDisplayTrigger">Open Science may also suggest alternate search terms in the same area of research to aid your discovery process.</div>
+   <div an:rel="#facet-display-controls" an:trigger="facetDisplayTrigger">You can narrow the search results within this page by clicking a facet value; you can also change which facets are available for narrowing your results by selecting from this list.</div>
+   <div an:rel="#text-search-facet" an:trigger="textSearchTrigger">You can refine your search by typing in this box; result narrowing takes place as you type.  You can try it now by typing <em>product</em> in and watching the result set change.</div>
+   <div an:rel="#source-facet" an:trigger="sourceFacetTrigger">Search results can come from several different data sources, from related web search indices to Open Science journals.  To select just one source, click it in the list. Individuals can add new data sources to expand their results in Preferences.</div>
+   <div an:rel=".exhibit-collectionView-header">Sorting controls are provided, defaulting to sort by relevance.</div>
+   <div an:rel=".prioritize-widget:eq(0)">You can prioritize results by clicking the up or down arrow icon. Your prioritization in each search context is recorded over time and affects the way search results are returned to you in the future. This is a kind of value add application that could be available in the Open Science application marketplace.</div>
+   <div an:rel="ol.exhibit-tileView-body li:eq(1),ol.exhibit-tileView-body li:eq(0)">Note the difference in the amount of information presented between some results.  The first result above links to a video, so a screenshot and icon are provided; the second is a journal article.  Results are enhanced where the data exists and can be customized by additional applications in the marketplace.</div>
+   <div an:rel="#results-format">You can change the way the result set is presented from a list view to a timeline-based view.  Other media-related views (e.g. images, videos, etc.) may also be available, though not in this mockup. Maps, scatterplot, graph views, etc. are also examples of marketplace applications that offer new insights over result sets.</div>
+   <div an:rel="#current-app">Applications, or "lenses," can be applied to augment a result set with additional, third-party information to better understand and sift through the results.  The one here is from the Whatizit service, adding Protein Disease UMLS taxonomy terms to applicable results. Results can now be refined and navigated based on the results of the value added service.</div>
+   <div an:rel="#current-app">You can hover over the current application to highlight those parts of the page that result from use of the active application.  When activated, you should see the taxonomy cloud facet on the left and parts of certain results have been generated from the Whatizit application.</div>
+   <div an:rel="#taxonomy-facet">Additional facets from the selected application are given higher priority in the facet list.</div>
+   <div an:rel="#taxonomy-facet-switcher" an:trigger="preApplicationMenuTrigger">You can also view the taxonomy in hierarchical form instead of the presently displayed cloud form.  This has not been implemented in the mockup.</div>
+   <div an:rel="#application-menu" an:trigger="applicationMenuTrigger">You can choose from applications you've purchased, or turn off the use of all applications.</div>
+   <div an:rel="#marketplace" an:trigger="postApplicationMenuTrigger">Depending on your search, you may receive recommendations of related Open Science marketplace applications.</div>
+   <div>The tutorial continues when you click on any result.</div>
+  </div>
+
+  <div id="footer">
+  </div>
+
+  <div id="efooter">
+  Copyright &copy; 2009 Zepheira, LLC
+  </div>
+ </body>
+</html>

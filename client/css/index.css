@@ -1,0 +1,83 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+body {
+    background: #fff;
+}
+
+#search {
+    background: #fff;
+    padding: 4em 0 4em;
+    text-align: center;
+    width: 100%;
+}
+
+#preferences {
+    background: #fff;
+}
+
+#marketplace-title {
+    font-size: 0.9em;
+    margin: 3em 0 0;
+    text-align: center;
+}
+
+#marketplace-previous,
+#marketplace-next {
+    cursor: pointer;
+    width: 36px;
+    height: 100px;
+    float: left;
+    margin: 0.5em 0 0;
+    opacity: 0.7;
+}
+
+#marketplace-previous {
+    background: url('../i/prev.png') left center no-repeat;
+}
+
+#marketplace-next {
+    background: url('../i/next.png') left center no-repeat;
+}
+
+#marketplace-featured {
+    background: #eee;
+    border: 1px solid #999;
+    float: left;
+    display: inline;
+    margin: 0.5em 0 0;
+}
+
+#marketplace-featured li {
+    display: none;
+    float: left;
+    font-size: 0.85em;
+    height: 100px;
+    margin: 0;
+    text-align: center;
+}
+
+#marketplace-indicator {
+    clear: both;
+    display: table;
+    margin: 10px auto;
+    border-collapse: separate;
+    border-spacing: 5px;
+}
+
+#marketplace-indicator td {
+    background: #ddd;
+    height: 10px;
+    padding: 0;
+    width: 10px;
+}
+
+#marketplace-indicator td.active-app {
+    background: #888;
+}
+
+#marketplace-more {
+    clear: both;
+    font-size: 0.85em;
+    padding: 2em 0 5em;
+    text-align: center;
+}

@@ -1,0 +1,54 @@
+{
+"items" :      [
+{
+"id" : "http://open-science.zepheira.com/market/applications/1000/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1000/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/1001/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1001/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/1002/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1002/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/1003/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1003/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/1004/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1004/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/100/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/100/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/103/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/103/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/104/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/104/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/201/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/201/",
+"ownership": "yes"
+},
+{
+"id" : "http://open-science.zepheira.com/market/applications/1020/",
+"applicationlink" : "http://open-science.zepheira.com/market/applications/1020/",
+"ownership": "yes"
+}
+]
+}

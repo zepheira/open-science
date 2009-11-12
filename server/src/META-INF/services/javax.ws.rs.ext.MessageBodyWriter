@@ -1,0 +1,6 @@
+com.sun.jersey.atom.abdera.impl.provider.entity.CategoriesProvider
+com.sun.jersey.atom.abdera.impl.provider.entity.EntryProvider
+com.sun.jersey.atom.abdera.impl.provider.entity.FeedProvider
+com.sun.jersey.atom.abdera.impl.provider.entity.ServiceProvider
+com.zepheira.osci.providers.OpenSearchProvider
+com.zepheira.osci.providers.ReadableProvider

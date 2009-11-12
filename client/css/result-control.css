@@ -1,0 +1,48 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+.home {
+    vertical-align: middle;
+}
+
+#main-search-return {
+    font-size: 0.85em;
+    padding: 0 0 0 2em;
+}
+
+#search {
+    margin: 10px 0 0 10px;
+}
+
+#advanced-search-title {
+    margin-left: 0;    
+}
+
+#applications-widget {
+    margin: -0.5em auto 0;
+    text-align: center;
+    width: 33%;
+    background: #fe7;
+    padding: 4px 0 0;
+    border-top: 2px solid #ff8807;
+}
+
+#applications-widget label {
+    color: #333;
+    font-size: 0.85em;
+}
+
+#applications-describe {
+    font-size: 0.9em;
+    padding: 4px 0;
+    margin: 2px 0 0;
+    color: #333;
+}
+
+#frames-break {
+    bottom: 0;
+    font-size: 0.9em;
+    padding: 0 3px 3px 0;
+    position: absolute;
+    right: 0;
+    text-align: right;
+}

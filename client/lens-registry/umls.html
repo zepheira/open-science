@@ -1,0 +1,21 @@
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<div ex:role="view"
+     ex:label="WhatIzIt UMLS Tags"
+     ex:type="TileView"
+     ex:orders=".relevance"
+     ex:directions="ascending"
+     ex:showAll="true"
+     ex:grouped="false"
+     ex:possibleOrders=".pubDate,.relevance"
+     ex:possibleDirections="descending,ascending">
+  <div ex:role="lens" ex:itemTypes="Publication,Video" class="hide-functional">
+    <div class="prioritize-widget">
+      <div class="prioritize-down" title="Give a thumbs down rating to this result"> </div>
+      <div class="prioritize-up" title="Give a thumbs up rating to this result"> </div>
+     </div>
+     <h3 class="result-main-link"><a ex:href-subcontent="result.html?url={{.escaped_link}}&uri={{.resultURI}}"><span ex:content=".title"></span></a></h3>
+     <p class="result-date"><span ex:content=".pubDate"></span> <span ex:if-exists=".authors">by</span> <span class="result-authors" title="More from this author"><span ex:content=".authors"></span></span></p>
+     <p class="current-application"><blockquote>Swissprot+UMLS terms: <span ex:content=".whatizitProteinDiseaseUMLS"></span></blockquote></p>
+     <p class="result-foot"><span class="result-source"><span ex:content=".dataSource"></span></span> - <span class="result-link"><span ex:content=".link"></span></span> - <span class="result-similar" title="[not a real link] View similar results">similar results</span> - <span class="fake-link" title="[not a link] Bookmark and share in 2collab"><img src="i/2collablogo.gif" class="result-share" /></span></p>
+    </div>
+</div>

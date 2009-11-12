@@ -1,0 +1,121 @@
+<html>
+ <head>
+  <!-- Copyright 2008-2009 Zepheira LLC -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/os.css" />
+  <link rel="stylesheet" type="text/css" href="css/annotate.css" />
+  <link rel="stylesheet" type="text/css" href="css/market.css" />
+
+  <script type="text/javascript" src="http://exhibit.zepheira.com/exhibit/2.2.0/exhibit-api.js?autoCreate=false"></script>
+  <!-- above exhibit loads jquery 1.2.1, but that's not good enough -->
+  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-slide.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/jquery.json-1.3.min.js"></script>
+
+  <link rel="exhibit/data" type="application/json" href="data/application-schema.json" />
+
+  <script type="text/javascript" src="js/annotate.js"></script>
+  <script type="text/javascript" src="js/os.js"></script>
+  <script type="text/javascript" src="js/market-query.js"></script>
+  <script type="text/javascript" src="js/market.js"></script>
+
+  <title>Open Science :: Application Marketplace</title>
+ </head>
+ <body>
+
+  <h1>Open Science</h1>
+
+  <div id="user-info">
+   <p><span class="fake-link" title="[not a link] Go to your account">scientist@research.edu</span> &middot;
+   <span class="fake-link" title="[not a link] Log out of your Open Science account">Log Out</span> &middot;
+   <span class="fake-link" title="[not a link] Learn more about Open Science data sources">Sources</span> &middot;
+   <span class="fake-link" title="[not a link] Find answers to your questions">Help</span></p>
+   <p id="preferences"><a href="preferences.html" title="Set your search preferences">Preferences</a> &middot;
+   <span class="fake-link" title="[not a link] View and manage your applications">My Applications</span> &middot;
+   Marketplace</p>
+  </div>
+
+  <div ex:role="exhibit-collection" ex:itemTypes="Application,Bundle"></div>
+  <table id="results-body"><tbody><tr>
+  <td id="results-set">
+
+  <ul id="developers">
+   <li><a href="developer.html" title="Add an application to the marketplace">Submit an Application</a> &middot;</li>
+   <li><a href="dashboard.html" title="Visit your Application Developer page">Developer Dashboard</a></li>
+  </ul>
+  <br />
+
+  <div ex:role="view" ex:showAll="true" ex:orders=".isodate" ex:directions="descending" ex:possibleOrders=".rating,.price,.isodate,.title,.creator,.type" ex:grouped="false" ex:showFooter="false">
+   <div ex:role="lens" class="hide-functional">
+    <table class="app"><tbody><tr><td class="icon">
+    <img ex:src-content=".icon" />
+    </td><td class="info" colspan="2">
+    <div class="app-pick"><span ex:if-exists=".editorsChoice"><img src="i/editors-s.png" title="Editors' Choice" /></span></div>
+    <h3><a ex:href-content=".applicationlink" ex:itemid-subcontent="{{.applicationlink}}" title="View more about this app"><span ex:content=".label"></span></a> <a ex:href-content=".homepage" title="Go to the organizational home page"><img style="vertical-align: top;" src="i/homepage.png" /></a></h3>
+    <p class="app-creator"><a ex:href-content=".creatorlink" title="[not a working link] About this developer"><span ex:content=".creator"></span></a></p>
+    <p class="app-description"><span ex:content=".description"></span></p>
+    </td></tr>
+    <tr><td class="app-ratings">
+    <img ex:src-content=".ratingstat" ex:title-subcontent="{{.rating}} stars" /><br /><span ex:content=".ratingcount"></span> ratings
+    </td><td class="app-downloads">
+    <p><span ex:content=".downloads"></span> users since <span ex:content=".date"></span></p>
+    <p>(<span ex:content=".dScientists"></span> scientists, <span ex:content=".dFaculty"></span> faculty,  <span ex:content=".dStudents"></span> students, <span ex:content=".dOthers"></span> other)</p>
+    </td><td class="app-price">
+     <div class="add-widget" ex:link-subcontent="{{value}}" ex:label-subcontent="{{.title}}" ex:price-subcontent="{{.price}}" title="Add to purchases"> </div>
+     <span class="app-price-tag">$<span ex:content=".price"></span>.00</span><br />
+     <span class="preview-widget" title="[not a link] Preview of this application"><img src="i/preview.png" style="height: 38px; width: 100px;" /></span>
+    </td></tr>
+    <tr><td></td><td colspan="2"><span class="if-purchased">
+       Installed location:
+       <span ex:if="contains(.contextClassification,'individual')"><span><strong>My Applications</strong> menu of <strong>individual result contents</strong></span></span>
+       <span ex:if="contains(.contextClassification,'set')"><span><strong>My Applications</strong> menu on the right of the <strong>search results page</strong></span></span>
+       <span ex:if="contains(.contextClassification,'lens')"><span><strong>Result lenses</strong> in the upper left of the <strong>search results page</strong></span></span>
+    </span></td></tr></tbody></table>
+   </div>
+  </div>
+  </td>
+  <td id="facets">
+  <div id="cart-section">
+  <p id="cart-checkout" title="[not a real link] Finish purchasing these applications">&raquo; Purchase</p>
+  <h4 id="cart-title">Application Cart (<span class="cart-size">0</span>)</h4>
+  <table id="cart"><tbody><tr id="cart-empty"><td colspan="3" style="text-align: center;"><em><strong>Empty</strong> - Add an application!</em></td></tr></tbody></table>
+  </div>
+  <h4>Search Applications</h4>
+  <div ex:role="facet" ex:facetClass="TextSearch" ex:expressions=".label,.domain,.category,.description" id="search-facet"></div>
+  <div ex:role="facet" ex:facetClass="Cloud" ex:expression=".tags" ex:facetLabel="Tags" ex:showMissing="false" id="tags-facet"></div>
+  <div ex:role="facet" ex:expression=".rating" ex:facetLabel="Rating" ex:showMissing="false" ex:sortDirection="reverse" ex:scroll="false" id="rating-facet"></div>
+  <div ex:role="facet" ex:facetClass="NumericRange" ex:interval="10" ex:expression=".price" ex:facetLabel="Price ($)" ex:scroll="false" id="price-facet"></div>
+  <div ex:role="facet" ex:expression=".editorsChoice" ex:facetLabel="Editors' Choice" ex:scroll="false" ex:showMissing="false" id="editors-choice-facet"></div>
+  <div ex:role="facet" ex:expression=".contextClassification" ex:facetLabel="Context" ex:scroll="false" id="context-facet"></div>
+  <div ex:role="facet" ex:expression=".domain" ex:facetLabel="Domain" ex:showMissing="false" ex:scroll="false" id="domain-facet"></div>
+  <div ex:role="facet" ex:expression=".category" ex:facetLabel="Category" ex:scroll="false" id="category-facet"></div>
+  <div ex:role="facet" ex:expression=".creator" ex:facetLabel="Creator" ex:scroll="false" ex:showMissing="false" id="creator-facet"></div>
+  </td>
+  </tr></tbody></table>
+
+  <div id="pref-reset">
+    <button id="pref-reset-button" title="For demonstration purposes, clear any purchases presently recorded in your browser">Clear Purchases</button>
+  </div>
+
+  <div id="user" class="annotations">
+   <div>This is the Open Science Application Marketplace where a user can find and purchase applications that make scientific research faster and easier.  Applications may be used to enhance an entire search result set or augment content of one article.  Use the Marketplace to browse for applications by research domain, application type, creator and other properties.  Special indications are made for Open Science "Editor's Pick" or "Featured Application" to draw user attention.</div>
+   <div an:rel="ol.exhibit-tileView-body li:eq(0) .app-ratings">Each application is rated by Marketplace users, indicating those considered most useful.</div>
+   <div an:rel="ol.exhibit-tileView-body li:eq(0) .app-downloads">To further give a sense of an application's value, a breakdown is shown of how many times the application has been purchased.  This breakdown is segmented by user type.</div>
+   <div an:rel="ol.exhibit-tileView-body li:eq(0) .preview-widget">To see an application in context as it is applied to a set of results or an individual result, launch a preview with the preview button.  Note that the button is not active in this mockup.</div>
+   <div an:rel="ol.exhibit-tileView-body li:eq(0) .app-price" an:trigger="preCartTrigger">Applications have a price, though some may be free.  To add one to your applications, first click the <em>Add</em> button, which will pop up the option to either purchase it yourself or notify your librarian that you'd like to submit the application for institutional requisition.  Either way, it will then be placed in your application cart.</div>
+   <div an:rel="#cart" an:trigger="cartTrigger">Added applications are placed in the application cart.  They can be removed here or from their place in the list; having any applications present reveals a purchasing link.</div>
+   <div an:trigger="postCartTrigger">Further tools to restrict the set of applications displayed are provided to the right in the set of facets, including by rating, price, editor's pick, creator, and others.</div>
+   <div>The tutorial continues by clicking on any of the applications.  They will all lead to the same place in this mockup system.</div>
+  </div>
+
+  <div id="footer">
+  </div>
+
+  <div id="efooter">
+  Copyright &copy; 2009 Zepheira, LLC
+  </div>
+ </body>
+</html>

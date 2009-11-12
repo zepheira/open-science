@@ -1,0 +1,20 @@
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<div ex:role="view"
+     ex:label="Abbreviated View"
+     ex:type="TileView"
+     ex:orders=".relevance"
+     ex:directions="ascending"
+     ex:showAll="true"
+     ex:grouped="false"
+     ex:possibleOrders=".pubDate,.relevance"
+     ex:possibleDirections="descending,ascending">
+  <div ex:role="lens" ex:itemTypes="Publication,Video" class="hide-functional">
+     <h3 class="result-main-link"><a ex:href-subcontent="result.html?url={{.escaped_link}}&uri={{.resultURI}}"><span ex:content=".title"></span></a></h3>
+     <p class="result-date">
+       <span ex:content=".pubDate"></span> <span ex:if-exists=".authors">by</span> <span class="result-authors" title="More from this author"><span ex:content=".authors"></span></span>
+     </p>
+     <p class="result-foot">
+       <span class="result-source"><span ex:content=".dataSource"></span></span> - <span class="result-link"><span ex:content=".link"></span></span>
+     </p>
+    </div>
+</div>

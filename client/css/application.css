@@ -1,0 +1,72 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+#explain {
+    background: #eee;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    font-size: 0.9em;
+    line-height: 1.4;
+    padding: 1.0em 20%;
+}
+
+table.app {
+    font-size: 0.9em;
+    margin: 0 15%;
+    width: 70%;
+}
+
+.app-downloads {
+    vertical-align: top;
+}
+
+#screenshots {
+    text-align: center;
+    padding-bottom: 2em;
+}
+
+#screenshots h3,
+#comments h3,
+#forum h3 {
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+#comments {
+    width: 40%;
+    padding-right: 20px;
+}
+
+#comments ul {
+    margin: 0;
+    padding: 0;
+}
+
+#comments li {
+    padding: 1.5em 0 0.5em;
+}
+
+.commenter {
+    margin-top: 0.25em;
+    display: block;
+    text-align: right;
+    font-style: italic;
+    color: #555;
+    font-size: 0.9em;
+}
+
+#forum ul {
+    margin: 0;
+    padding: 0;
+}
+
+#forum li {
+    padding: 1em 0 1em;
+    border-bottom: 1px solid #ddd;    
+}
+
+#developers {
+    font-size: 0.9em;
+    margin: 10px 15% 20px;
+}

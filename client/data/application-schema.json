@@ -1,0 +1,21 @@
+{
+    "types": {
+        "Application": {
+            pluralLabel: "Applications"
+        },
+        "Bundle": {
+            pluralLabel: "Bundles",
+        }
+    },
+    "properties":   {
+        "isodate": {
+            "label": "date"
+        },
+        "rating": {
+            "valueType": "number"
+        },
+        "price": {
+            "valueType": "number"
+        }
+    }
+}

@@ -1,0 +1,102 @@
+<html>
+ <head>
+  <!-- Copyright 2008-2009 Zepheira LLC -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/os.css" />
+  <link rel="stylesheet" type="text/css" href="css/annotate.css" />
+  <link rel="stylesheet" type="text/css" href="css/search.css" />
+  <link rel="stylesheet" type="text/css" href="css/index.css" />
+
+  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-slide.js"></script>
+  <script type="text/javascript" src="js/jquery.json-1.3.min.js"></script>
+  <script type="text/javascript" src="js/jquery.cookie.js"></script>
+  <script type="text/javascript" src="js/os.js"></script>
+  <script type="text/javascript" src="js/annotate.js"></script>
+  <script type="text/javascript" src="js/search.js"></script>
+  <script type="text/javascript" src="js/market-featured.js"></script>
+  <script type="text/javascript" src="js/content-sources-query.js"></script>
+  <script type="text/javascript" src="js/available-apps-query.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+
+  <title>Open Science</title>
+ </head>
+ <body>
+
+  <h1>Open Science</h1>
+
+  <div id="user-info">
+   <p><span class="fake-link" title="[not a link] Go to your account">scientist@research.edu</span> &middot;
+   <span class="fake-link" title="[not a link] Log out of your Open Science account">Log Out</span> &middot;
+   <span class="fake-link" title="[not a link] Learn more about Open Science data sources">Sources</span> &middot;
+   <span class="fake-link" title="[not a link] Find answers to your questions">Help</span></p>
+   <p id="preferences"><a href="preferences.html" title="Set your search preferences">Preferences</a> <span class="services">&middot;</span>
+   <span class="fake-link services" title="[not a link] View and manage your applications">My Applications</span> <span class="services">&middot;</span>
+   <a class="services" href="market.html" title="Go to the marketplace to view and purchase additional applications">Marketplace</a></p>
+  </div>
+
+  <form id="search" action="search.html" method="get">
+   <input id="q" name="q" type="text" size="60" />
+   <input type="submit" value="Search" />
+   <div id="suggestions">
+    <p>stem cells</p>
+    <p>pluripotent stem cells</p>
+    <p>unipotent stem cells</p>
+   </div>
+   <h3 id="advanced-search-title">Search Refinement Options</h3>
+   <div id="advanced-search-options">
+    <table><tbody><tr><td>
+    <h4>Sources</h4>
+    <ul id="content-sources">
+    </ul>
+    </td><td>
+    <h4>Media</h4>
+    <ul>
+     <li><input type="checkbox" name="type-images" id="type-images" checked="checked" /><label for="type-images">Images</label></li>
+     <li><input type="checkbox" name="type-video" id="type-audio" checked="checked" /><label for="type-audio">Audio</label></li>
+     <li><input type="checkbox" name="type-video" id="type-video" checked="checked" /><label for="type-video">Video</label></li>
+    </ul>
+    </td><td id="apps" class="services">
+    <h4>Application</h4>
+     <ul id="results-apps">
+      <li><input type="radio" id="app-1" name="app" /><label for="app-1"><em>None</em></label></li>
+     </ul>
+    </td></tr></tbody></table>
+   </div>
+  </form>
+
+  <h3 id="marketplace-title" class="services">Featured Marketplace Applications</h3>
+  <ul id="marketplace-featured" class="services">
+   <li><span class="fake-link" title="[not a real link]"><img src="i/illumin8.gif" /><br />illumin8</span><br />Get a valuable assist to understanding the whole of your search results.</li>
+   <li><span class="fake-link"" title="[not a real link]"><img src="i/cite.png" style="height: 64px; width: 64px;" /><br />BiblioList</span><br />Add a result to your bibliography.  Free!</li>
+   <li><span class="fake-link"" title="[not a real link]"><img src="i/highlight-term.png" style="height: 64px; width: 64px;" /><br />Highlight Terms</span><br />Highlight terms in a search result.  Free!</li>
+  </ul>
+  <table id="marketplace-indicator" class="services"><tbody>
+   <tr>
+    <td> </td>
+    <td> </td>
+    <td class="active-app"> </td>
+   </tr>
+  </tbody></table>
+  <p id="marketplace-more" class="services"><a href="market.html">Browse the full application marketplace</a></p>
+
+  <div id="user" class="annotations">
+   <div>Welcome to Open Science. Please click <em>next</em> in the upper right corner to follow the Open Science tutorial or, if you've already been through this, <a href="?annotate=off">disable the tutorial</a>.</div>
+   <div an:rel="#q" an:trigger="qTrigger">This is the search box, your entry point to begin the discovery process.  We've primed it with the phrase <em>stem cells</em> to start you off.</div>
+   <div an:rel="#suggestions" an:trigger="suggestTrigger">Suggestions are provided for semantically related terms as you type. These types of semantic enrichments can be created by Open Science developers or commercial third parties, offered in the marketplace and applied to meet the needs of specific users.</div>
+   <div an:rel="#advanced-search-options" an:trigger="advancedTrigger">Before we submit the search, note that you can tune it first.  Click <em>Search Refinement Options</em> to refine your view based on your preferences: collections, media type and applications purchaced from the marketplace.</div>
+   <div an:rel="#preferences" an:trigger="preferencesTrigger">Click <em>Preferences</em> at any time to customize and store attributes to personalize your user experience.</div>
+   <div an:rel="#marketplace-featured">This is a subset of what's available in the application marketplace; more on that later.</div>
+   <div>The tutorial advances when you hit the <em>Search</em> button.</div>
+  </div>
+
+  <div id="footer">
+  </div>
+
+  <div id="efooter">
+  Copyright &copy; 2009 Zepheira, LLC
+  </div>
+ </body>
+</html>

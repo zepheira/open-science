@@ -1,0 +1,64 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+#advanced-search-title {
+    background: url('../i/twisty-close.gif') top left no-repeat;
+    color: blue;
+    cursor: pointer;
+    font-size: 0.8em;
+    font-weight: normal;
+    height: 13px;
+    margin: 1px 0 0;
+    padding: 1px 0 1px 15px;
+    text-align: left;
+    width: 200px;
+}
+
+#advanced-search-title.open {
+    background: url('../i/twisty-open.gif') top left no-repeat;
+}
+
+#suggestions {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    font-size: 0.85em;
+    opacity: 0.85;
+    padding: 0;
+    position: absolute;
+    text-align: left;
+    z-index: 75;
+}
+
+#suggestions p {
+    padding: 4px;
+}
+
+#suggestions p.hovered {
+    background: #417BD9;
+    color: #fff;
+    cursor: pointer;
+}
+
+#q {
+    text-align: left;
+}
+
+#advanced-search-options {
+    background: #fff;
+    border: 1px solid #ccc;
+    display: none;
+    font-size: 0.8em;
+    margin: 0;
+    padding: 10px;
+    position: absolute;
+    text-align: left;
+}
+
+#advanced-search-options td {
+    width: 10em;
+}
+
+#advanced-search-options td#apps {
+    width: 13em;
+}

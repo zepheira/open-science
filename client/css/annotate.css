@@ -1,0 +1,87 @@
+/* Copyright 2008-2009 Zepheira LLC */
+
+.annotate-highlight {
+    position: relative;
+    z-index: 100;
+}
+
+.annotations div {
+    background: #fe9;
+    border: 2px solid #cb6;
+    display: none;
+    font-size: 0.9em;
+    line-height: 1.6;
+    opacity: 0.85;
+    padding: 0.5em 1em;
+    position: absolute;
+    width: 50%;
+    z-index: 100;
+}
+
+#annotation-navigation {
+    background: #666;
+    border-bottom: 1px solid #333;
+    display: none;
+    left: 0;
+    margin: 0;
+    opacity: 0.85;
+    padding: 0 1%;
+    position: fixed;
+    width: 98%;
+    top: 0;
+    z-index: 100;
+}
+
+#annotation-navigation-previous {
+    color: #ddd;
+    cursor: pointer;
+    float: left;
+    font-family: "Helvetica", "Verdana", sans-serif;
+    font-size: 1.3em;
+    letter-spacing: 0.9em;
+    padding: 0.5em 0;
+    text-align: left;
+    text-transform: uppercase;
+    width: 49%;
+}
+
+#annotation-navigation-next {
+    color: #ddd;
+    cursor: pointer;
+    float: right;
+    font-family: "Helvetica", "Verdana", sans-serif;
+    font-size: 1.3em;
+    letter-spacing: 0.9em;
+    padding: 0.5em 0;
+    text-align: right;
+    text-transform: uppercase;
+    width: 49%;
+}
+
+#annotation-navigation-close {
+    color: #ddd;
+    cursor: pointer;
+}
+
+#annotation-counter {
+    clear: both;
+    font-size: 0.8em;
+    text-align: center;
+    width: 100%;
+}
+
+#show-annotations {
+    background: #eee;
+    display: none;
+    color: #555;
+    cursor: pointer;
+    position: fixed;
+    top: 0;
+    text-align: center;
+    width: 10%;
+    margin: 0 44%;
+    padding: 0.4em;
+    text-transform: uppercase;
+    font-size: 0.7em;
+    opacity: 0.7;
+}

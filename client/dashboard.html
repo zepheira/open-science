@@ -1,0 +1,139 @@
+<html>
+ <head>
+  <!-- Copyright 2008-2009 Zepheira LLC -->
+  <link rel="stylesheet" type="text/css" href="css/reset.css" />
+  <link rel="stylesheet" type="text/css" href="css/os.css" />
+  <link rel="stylesheet" type="text/css" href="css/annotate.css" />
+  <link rel="stylesheet" type="text/css" href="css/dashboard.css" />
+
+  <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-core.js"></script>
+  <script type="text/javascript" src="js/jquery-ui-1.7.1-effects-slide.js"></script>
+  <script type="text/javascript" src="js/os.js"></script>
+  <script type="text/javascript" src="js/annotate.js"></script>
+  <script type="text/javascript" src="js/dashboard.js"></script>
+
+  <title>Open Science :: Developer Dashboard</title>
+ </head>
+ <body>
+
+  <h1>Open Science</h1>
+
+  <div id="user-info">
+   <p><span class="fake-link" title="[not a link] Go to your account">scientist@research.edu</span> &middot;
+   <span class="fake-link" title="[not a link] Log out of your Open Science account">Log Out</span> &middot;
+   <span class="fake-link" title="[not a link] Learn more about Open Science data sources">Sources</span> &middot;
+   <span class="fake-link" title="[not a link] Find answers to your questions">Help</span></p>
+   <p id="preferences"><a href="preferences.html" title="Set your search preferences">Preferences</a> &middot;
+   <span class="fake-link" title="[not a link] View and manage your applications">My Applications</span> &middot;
+   <a href="market.html" title="Go to the marketplace to view and purchase additional applications">Marketplace</a></p>
+  </div>
+
+  <table><tbody>
+   <tr><td id="apps">
+    <p class="intro">Welcome back to your Developer Dashboard.  You can manage your active applications or <a href="#submit-title">submit a new one</a>.</p>
+
+    <h2>Your Applications</h2>
+    <ul>
+     <li class="app"><span class="fake-link" title="[not a link]">Application Omicron</span> <img src="i/star_red0half_1.gif" /> (1 rating) &middot; <span class="fake-link" title="[not a link]">edit</span>
+      <ul class="app-specifics">
+       <li><strong>Submitted</strong>: two days ago</li>
+       <li><strong>Certified</strong>: <em>under review</em></li>
+       <li>Retrieves data to apply the Omicron ontology.</li>
+       <li><span class="count">0</span> users &middot; <span class="count">0</span> comments &middot; <span class="count">0</span> new users this week &middot; <span class="fake-link" title="[not a link]">user forum</span></li>
+       <li><span class="count">2</span> run times this week &middot; <span class="count">2</span> runs total &middot; <span class="fake-link" title="[not a link]">more stats</span></li>
+      </ul>
+     </li>
+     <li class="app"><span class="fake-link" title="[not a link]">Application Gamma</span> <img src="i/star_red2_1.gif" /> (17 ratings) &middot; <span class="fake-link" title="[not a link]">edit</span>
+      <ul class="app-specifics">
+       <li><strong>Submitted</strong>: about a month ago</li>
+       <li><strong>Certified</strong>: approved</li>
+       <li>Retrieves data to apply the Gamma ontology.</li>
+       <li><span class="count">52</span> users &middot; <span class="count">12</span> comments &middot; <span class="count">20</span> new users this week &middot; <span class="fake-link" title="[not a link]">user forum</span></li>
+       <li><span class="count">11</span> run times this week &middot; <span class="count">109</span> runs total &middot; <span class="fake-link" title="[not a link]">more stats</span></li>
+      </ul>
+     </li>
+     <li class="app pick"><span class="fake-link" title="[not a link]">Application Eta</span> <img src="i/star_red4half_1.gif" /> (123 ratings) &middot; <span class="fake-link" title="[not a link]">edit</span>
+      <ul class="app-specifics">
+       <li><strong>Submitted</strong>: about four months ago</li>
+       <li><strong>Certified</strong>: editor's pick</li>
+       <li>Provides an Eta visualization.</li>
+       <li><span class="count">223</span> users &middot; <span class="count">46</span> comments &middot; <span class="count">6</span> new users this week &middot; <span class="fake-link" title="[not a link]">user forum</span></li>
+       <li><span class="count">839</span> run times this week &middot; <span class="count">10,127</span> runs total &middot; <span class="fake-link" title="[not a link]">more stats</span></li>
+      </ul>
+     </li>
+    </ul>
+    <h2 id="submit-title">Submit a New Application</h2>
+    <h3 id="submit-step">Step 1 of 3</h3>
+    <table class="submit-app"><tbody>
+     <tr><td>
+      <label for="name">Name</label>
+     </td><td>
+      <input type="text" id="name" />
+     </td></tr>
+     <tr><td>
+      <label for="file">Upload</label>
+     </td><td>
+      <input type="file" id="file" />
+     </td></tr>
+     <tr><td> </td><td class="next-button">
+      <input type="button" value="Next &raquo;" />
+     </td></tr>
+    </tbody></table>
+   </td><td id="docs">
+    <p id="start"><a href="developer.html" title="New?  Start here.">Developer Resources</a></p>
+    <h2>References</h2>
+    <ul>
+     <li><span class="fake-link" title="[not a link]">API</span></li>
+     <li><span class="fake-link" title="[not a link]">Payment and Fee Schedules</span></li>
+    </ul>
+    <h2>Downloads</h2>
+    <ul>
+     <li><span class="fake-link" title="[not a link]">Application Examples</span></li>
+     <li><span class="fake-link" title="[not a link]">IDE Plug-ins</span></li>
+    </ul>
+    <h2>Documentation</h2>
+    <ul>
+     <li><span class="fake-link" title="[not a link]">Overview</span></li>
+     <li><span class="fake-link" title="[not a link]">Building an Application</span></li>
+     <li><span class="fake-link" title="[not a link]">Best Practices</span></li>
+     <li><span class="fake-link" title="[not a link]">Submitting an Application</span></li>
+     <li><span class="fake-link" title="[not a link]">Development Environment</span></li>
+     <li><span class="fake-link" title="[not a link]">Code Snippets</span></li>
+     <li><span class="fake-link" title="[not a link]">Frequetly Asked Questions</span></li>
+     <li><span class="fake-link" title="[not a link]">Videos and Screencasts</span></li>
+    </ul>
+    <h2>Community</h2>
+    <ul>
+     <li><span class="fake-link" title="[not a link]">Developers Forum</span></li>
+     <li><span class="fake-link" title="[not a link]">Mailing List</span></li>
+     <li><span class="fake-link" title="[not a link]">IRC Channel</span></li>
+     <li><span class="fake-link" title="[not a link]">Blogs</span></li>
+    </ul>
+   </td></tr>
+  </tbody></table>
+
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+  <br />
+
+  <div id="user" class="annotations">
+   <div>Developers interested in contributing applications to the marketplace can start from here, to manage their existing applications, add new ones, and get connected to resources and other developers.</div>
+   <div an:rel=".submit-app">After packaging up their application, a developer can start the submission process here.  In this mockup, this form does nothing.</div>
+   <div an:rel=".app:eq(0)">The sample applications depicted here represent a developer's portfolio in varous stages of editorial approval and user deployment.</div>
+   <div an:rel="#start">New developers can get up to speed by visiting the <em>Getting Started</em> page, where the tutorial continues.  Please note that all other links present in the content of this page do not lead anywhere.</div>
+  </div>
+
+  <div id="footer">
+  </div>
+
+  <div id="efooter">
+  Copyright &copy; 2009 Zepheira, LLC
+  </div>
+ </body>
+</html>

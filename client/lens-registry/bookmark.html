@@ -1,0 +1,39 @@
+<!-- Copyright 2008-2009 Zepheira LLC -->
+<div ex:role="view"
+     ex:label="Social Bookmark View"
+     ex:type="TileView"
+     ex:orders=".pubDate"
+     ex:directions="ascending"
+     ex:showAll="true"
+     ex:grouped="false"
+     ex:possibleOrders=".pubDate,.relevance"
+     ex:possibleDirections="descending,ascending">
+   <div ex:role="lens" ex:itemTypes="Publication,Video" class="hide-functional" style="margin: 5px 0 0 0; padding: 5px 0 0 0; border-bottom: 1px solid lightgrey";>
+   <span ex:if="exists(.journal_cover)">
+        <div class="thumbnail-image">
+	  <img align="left" ex:src-content=".journal_cover" alt="Journal cover" style="width: 60px;" />
+	</div>
+      </span>
+      <span ex:if="exists(.snapshot)">
+        <div class="thumbnail-image">
+          <img align="left" ex:src-content=".snapshot" style="width: 60px;" />
+        </div> 
+      </span>
+      <h3 class="result-main-link"><a ex:href-subcontent="result.html?url={{.escaped_link}}&uri={{.resultURI}}">
+        <span ex:content=".title"></span></a>
+      </h3>
+      <p class="result-date">
+        <span ex:content=".pubDate"></span> <span ex:if-exists=".authors">by</span> <span class="result-authors" title="More from this author"><span ex:content=".authors"></span></span>
+     </p>
+     <p class="result-foot">
+       <span class="result-source"><span ex:content=".dataSource"></span></span> - <span class="result-link"><span ex:content=".link"></span></span>
+     </p>
+     <p class="bookmark" align="right" style="padding-bottom: 10px;">         
+        <script type="text/javascript">var addthis_pub="49f35a865973a906";</script>
+	<a href="http://www.addthis.com/bookmark.php?v=20" ex:onmouseover-subcontent="return addthis_open(this, '', '{{.link}}', '{{.title}}')" onmouseout="addthis_close()" onclick="return addthis_sendto()"><img src="http://s7.addthis.com/static/btn/sm-plus.gif" width="16" height="16" alt="bookmark and share" style="border:0"/></a>
+	<script type="text/javascript" src="http://s7.addthis.com/js/200/addthis_widget.js"></script>
+     </p>
+  </div>
+</div>
+
+
