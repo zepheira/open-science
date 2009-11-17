@@ -41,7 +41,7 @@
 		<mkdir dir="${dist}" />
 
 		<!-- Put everything in ${build} into the open-science-server-${DSTAMP}.jar file -->
-		<jar jarfile="${dist}/open-science-server-{DSTAMP}.jar">
+		<jar jarfile="${dist}/open-science-server-${DSTAMP}.jar">
 			<fileset dir="${build}" />
 			<fileset dir="${src}" />
 			<manifest>
@@ -75,7 +75,7 @@
 			<entry xmlns="http://www.w3.org/2005/Atom">
 				<title type="text">DSpace</title>
 				<summary type="text">DSpace is an open-source platform for accessing, managing, and preserving scholarly works.</summary>
-				<link href="${host}/content/dspace.discovery" type="application/opensearchdescription+xml" />
+				<link href="${host}/content/osci.dspace.discovery" type="application/opensearchdescription+xml" />
 			</entry>
 		]]></echo>
 		<antcall target="post-content" />
@@ -83,7 +83,7 @@
 			<entry xmlns="http://www.w3.org/2005/Atom">
 				<title type="text">PubMed</title>
 				<summary type="text">PubMed provides access to citations from biomedical literature.</summary>
-				<link href="${host}/content/pubmed.discovery" type="application/opensearchdescription+xml" />
+				<link href="${host}/content/osci.pubmed.discovery" type="application/opensearchdescription+xml" />
 			</entry>
 		]]></echo>
 		<antcall target="post-content" />
@@ -91,7 +91,7 @@
 			<entry xmlns="http://www.w3.org/2005/Atom">
 				<title type="text">JoVE</title>
 				<summary type="text">The Journal of Visualized Experiments is a web-based, peer-reviewed journal that publishes scientific protocols in video format.</summary>
-				<link href="${host}/content/jove.discovery" type="application/opensearchdescription+xml" />
+				<link href="${host}/content/osci.jove.discovery" type="application/opensearchdescription+xml" />
 			</entry>
 		]]></echo>
 		<antcall target="post-content" />
