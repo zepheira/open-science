@@ -1,4 +1,4 @@
-Open Science Framework, version 0.1
+Open Science Framework, version 0.5
 4 November 2009
 
 

@@ -22,6 +22,7 @@ e.g.
 [jove_adapter]
 osci-base = http://my-open-science-server.com
 admin-email = admin@my-open-science-server.com
+default-max-results = 100
 
 = Notes on security =
 
@@ -58,6 +59,7 @@ from akara.services import simple_service
 OSCI_BASE = AKARA.module_config.get('osci-base', 'http://open-science.zepheira.com')
 ID_BASE = AKARA.module_config.get('id-base', OSCI_BASE).decode('utf-8')
 ADMIN_EMAIL = AKARA.module_config.get('admin-email', 'admin@my-open-science-server.com')
+DEFAULT_MAX_RESULTS = int(AKARA.module_config.get('default-max-results', '100'))
 
 
 ATOM_ENVELOPE = '''<?xml version="1.0" encoding="UTF-8"?>
@@ -90,8 +92,6 @@ def get_data_from_page(entry, link):
 
 JOVE_NS = ID_BASE + u'content/jove/datamodel#'
 OPENSEARCH_NAMESPACE = u'http://a9.com/-/spec/opensearch/1.1/'
-
-DEFAULT_MAX_RESULTS = 10
 
 JOVE_SEARCH_PATTERN = u"http://www.jove.com/index/Search.stp?%s"
 #JOVE_ADAPTER_BASE = OSCI_BASE + u"content/jove"
