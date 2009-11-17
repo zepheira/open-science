@@ -60,12 +60,19 @@ AvailableLenses.generateLenses = function() {
     if (Personal.getPreferredLens().length == 0 || Personal.isPreferredLens('default-list')) {
         el.append('<li><input type="radio" id="list" name="lens" value="default-list" checked="true" /><label for="list">List</li>');
 	el.append('<li><input type="radio" id="timeline" name="lens" value="default-timeline" /><label for="timeline">Timeline</label></li>');
+	el.append('<li><input type="radio" id="map" name="lens" value="default-map" /><label for="map">Map</label></li>');
     } else if (Personal.isPreferredLens('default-timeline')) {
         el.append('<li><input type="radio" id="list" name="lens" value="default-list" /><label for="list">List</li>');
 	el.append('<li><input type="radio" id="timeline" name="lens" value="default-timeline" checked="true" /><label for="timeline">Timeline</label></li>');
+	el.append('<li><input type="radio" id="map" name="lens" value="default-map" /><label for="map">Map</label></li>');
+    } else if (Personal.isPreferredLens('default-map')) {
+        el.append('<li><input type="radio" id="list" name="lens" value="default-list" /><label for="list">List</li>');
+	el.append('<li><input type="radio" id="timeline" name="lens" value="default-timeline" /><label for="timeline">Timeline</label></li>');
+	el.append('<li><input type="radio" id="map" name="lens" value="default-map" checked="true" /><label for="map">Map</label></li>');
     } else {
         el.append('<li><input type="radio" id="list" name="lens" value="default-list" /><label for="list">List</li>');
 	el.append('<li><input type="radio" id="timeline" name="lens" value="default-timeline" /><label for="timeline">Timeline</label></li>');
+	el.append('<li><input type="radio" id="map" name="lens" value="default-map" /><label for="map">Map</label></li>');
     }
     for (var i = 0; i < lenses.length; i++) {
         var lens = AvailableLenses.lenses[map[lenses[i]]];

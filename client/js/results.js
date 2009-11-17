@@ -264,11 +264,13 @@ var prepareResults = function() {
 
     var setupViews = function() {
         if (Personal.isPreferredLens('default-lens')) {
-            $('#results-format-select').append('<option id="default-list" value="0" selected="true">List</option>').append('<option id="default-timeline" value="1">Timeline</option>');
+            $('#results-format-select').append('<option id="default-list" value="0" selected="true">List</option>').append('<option id="default-timeline" value="1">Timeline</option>').append('<option id="default-map" value="2">Map</option>');
         } else if (Personal.isPreferredLens('default-timeline')) {
-            $('#results-format-select').append('<option id="default-list" value="0">List</option>').append('<option id="default-timeline" value="1" selected="true">Timeline</option>');
+            $('#results-format-select').append('<option id="default-list" value="0">List</option>').append('<option id="default-timeline" value="1" selected="true">Timeline</option>').append('<option id="default-map" value="2">Map</option>');
+        } else if (Personal.isPreferredLens('default-map')) {
+            $('#results-format-select').append('<option id="default-list" value="0">List</option>').append('<option id="default-timeline" value="1">Timeline</option>').append('<option id="default-map" value="2" selected="true">Map</option>');
         } else {
-            $('#results-format-select').append('<option id="default-list" value="0">List</option>').append('<option id="default-timeline" value="1">Timeline</option>');
+            $('#results-format-select').append('<option id="default-list" value="0">List</option>').append('<option id="default-timeline" value="1">Timeline</option>').append('<option id="default-map" value="2">Map</option>');
         }
     }
 

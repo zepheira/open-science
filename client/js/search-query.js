@@ -201,7 +201,7 @@ SearchQuery.serviceToProperty = function(serviceURI) {
     return serviceURI.substring(serviceURI.lastIndexOf('/')+1);
 }
 
-SearchQuery.Result = function(id, type, title, link, resultURI, updated, description, source, subjects, authors, tags, cover, frame) {
+SearchQuery.Result = function(id, type, title, link, resultURI, updated, description, source, subjects, authors, tags, cover, frame, place, latlng) {
     this._id = id;
     this._type = type;
     this._title = title;
@@ -215,6 +215,8 @@ SearchQuery.Result = function(id, type, title, link, resultURI, updated, descrip
     this._tags = tags;
     this._cover = cover;
     this._frame = frame;
+    this._place = place;
+    this._latlng = latlng;
     this._relevance = Math.round(Math.random()*10000);
 }
 
@@ -282,6 +284,14 @@ SearchQuery.Result.prototype.getFrame = function() {
     return this._frame;
 }
 
+SearchQuery.Result.prototype.getPlace = function() {
+    return this._place;
+}
+
+SearchQuery.Result.prototype.getLatlng = function() {
+    return this._latlng;
+}
+
 SearchQuery.Result.prototype.getRelevance = function() {
     return this._relevance;
 }
@@ -310,6 +320,14 @@ SearchQuery.Result.prototype.toJSON = function() {
         json['journal_cover'] = this.getCover();
     }
 
+    if (this.getPlace() != null) {
+        json['place'] = this.getPlace();
+    }
+
+    if (this.getLatlng() != null) {
+        json['latlng'] = this.getLatlng();
+    }
+
     return json;
 }
 
@@ -327,7 +345,7 @@ SearchQuery.processBaseResult = function(r, source, resultURI) {
     var updated = r.children('updated').text();
     var description = r.children('summary').text();
     var link = r.children('content').attr('src');
- 
+
     var authors = [];
     r.children('author').each(function(){
         var author = $(this).children('name').text();
@@ -343,12 +361,21 @@ SearchQuery.processBaseResult = function(r, source, resultURI) {
     // unsure of whether this can be used
     var cover = '';
 
+    var location = r.find('location').filter(function(){
+        return $(this).get(0).namespaceURI == 'http://open-science.zepheira.com/content/model#';
+    });
+    var place, latlng;
+    if (location.length > 0) {
+        place = location.attr('location');
+        latlng = location.attr('latlong');
+    }
+
     var frame = r.find('link[rel="icon"]').attr('href');
 
     var itemType = (source == 'JoVE') ? 'Video' : 'Publication';
 
     // bundle all of this into a JSON object and load into exhibit 
-    var result = new SearchQuery.Result(id, itemType, title, link, resultURI, updated, description, source, subjects, authors, {}, cover, frame);
+    var result = new SearchQuery.Result(id, itemType, title, link, resultURI, updated, description, source, subjects, authors, {}, cover, frame, place, latlng);
     return result;
 }
 
