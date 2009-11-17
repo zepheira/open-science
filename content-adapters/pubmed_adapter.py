@@ -27,6 +27,7 @@ e.g.
 [pubmed_adapter]
 osci-base = http://my-open-science-server.com
 admin-email = admin@my-open-science-server.com
+default-max-results = 100
 
 = Notes on security =
 
@@ -37,7 +38,7 @@ to access. If you wish to limit access, best bet is to set a firewall or proxy r
 restrict requestor IP to the ZOSCI server.
 
 '''
-#Try: http://localhost:8880/pubmed?search=heart%20attack
+#Try: http://localhost:8880/osci.pubmed.atom?search=heart%20attack
 
 import sys, time
 import datetime
@@ -47,10 +48,11 @@ from functools import *
 
 import amara
 from amara import bindery
-from amara.bindery.model import examplotron_model, generate_metadata
+from amara.writers.struct import structwriter, E, NS, ROOT, RAW
+from amara.bindery.model import examplotron_model, generate_metadata, metadata_dict
 from amara.lib import U
 from amara.bindery.html import parse as htmlparse
-from amara.namespaces import *
+from amara.namespaces import ATOM_NAMESPACE
 from amara.xslt import transform
 
 from amara.tools.atomtools import feed
@@ -65,17 +67,20 @@ import logging; logger.setLevel(logging.DEBUG)
 #For all DBs:
 #NCBI_ESEARCH_PATTERN = 'http://www.ncbi.nlm.nih.gov/entrez/eutils/egquery.fcgi?term=%s'
 
+OPENSEARCH_NAMESPACE = u'http://a9.com/-/spec/opensearch/1.1/'
+
 OSCI_BASE = AKARA.module_config.get('osci-base', 'http://open-science.zepheira.com')
 ID_BASE = AKARA.module_config.get('id-base', OSCI_BASE).decode('utf-8')
 ADMIN_EMAIL = AKARA.module_config.get('admin-email', 'admin@my-open-science-server.com')
+DEFAULT_MAX_RESULTS = int(AKARA.module_config.get('default-max-results', '100'))
 
 ATOM_ENVELOPE = '''<?xml version="1.0" encoding="UTF-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom" xmlns:pubmed="%s/content/pubmed/datamodel#" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
   <title>PubMed Open Science adapter</title>
   <id>http://example.org/CHANGE_ME</id>
 
 </feed>
-'''%OSCI_BASE
+'''
 
 PUBMED_MODEL_XML = """<PubmedArticleSet xmlns:eg="http://examplotron.org/0/" xmlns:ak="http://purl.org/xml3k/akara/xmlmodel">
 <PubmedArticle ak:resource="MedlineCitation/PMID">
@@ -173,10 +178,6 @@ PUBMED_MODEL = examplotron_model(PUBMED_MODEL_XML)
 NCBI_DB = u"pubmed"
 
 PUBMED_NS = OSCI_BASE + u'/content/pubmed/datamodel#'
-
-OPENSEARCH_NAMESPACE = u'http://a9.com/-/spec/opensearch/1.1/'
-
-DEFAULT_MAX_RESULTS = 10
 
 #Per-article search http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pubmed&id=18324973&retmode=xml
 #http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=cancer&reldate=60&datetype=edat&retmax=100&usehistory=y
