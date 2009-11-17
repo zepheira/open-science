@@ -1,0 +1,7 @@
+syntax: glob
+
+*.class
+server/enhanced/*.xml
+server/services/*.xml
+server/dist/*.jar
+server/build.properties
