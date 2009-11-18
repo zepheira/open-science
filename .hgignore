@@ -5,3 +5,5 @@ server/enhanced/*.xml
 server/services/*.xml
 server/dist/*.jar
 server/build.properties
+*.tar
+*.tar.gz

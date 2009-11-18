@@ -1,7 +1,7 @@
 all: openscience.tar.gz
 
 openscience.tar:
-	find . -not -path "*.svn*" -not -name "Makefile" -not -name "*.tar" -print0 | tar -c --no-recursion --null --files-from=- -f $@
+	find . -not -path "*.hg*" -not -name ".hgignore" -not -name "Makefile" -not -name "*.tar" -print0 | tar -c --no-recursion --null --files-from=- -f $@
 	mkdir openscience
 	tar xf $@ -Copenscience
 	rm $@
