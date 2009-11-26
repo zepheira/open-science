@@ -50,6 +50,16 @@
 		</jar>
 	</target>
 
+	<target name="war" depends="compile" description="Generate a WAR for servlet containers">
+		<mkdir dir="${dist}" />
+		<war destfile="${dist}/open-science-server-${DSTAMP}.war"
+		     webxml="web.xml">
+			<lib dir="${lib}" />
+			<classes dir="${build}" />
+			<metainf dir="${src}/META-INF/" />
+		</war>
+	</target>
+
 	<target name="run" depends="compile">
 		<java classname="${main}" fork="true">
 			<jvmarg line="${jvmargs}" />
