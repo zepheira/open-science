@@ -3,7 +3,7 @@
  */
 
 var ContentSources = {
-    sourcesURI: '/services/content',
+    sourcesURI: OS.constants.endpoints.content,
     OSRel: OS.constants.rel.os,
     LinkRel: OS.constants.rel.link,
     elementId: null,

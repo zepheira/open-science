@@ -3,7 +3,7 @@
  */
 
 var AvailableLenses = {
-    lensesURI: '/services/lenses',
+    lensesURI: OS.constants.endpoints.lenses,
     GetRel: OS.constants.rel.get,
     elementId: null,
     callback: function(){},

@@ -7,7 +7,7 @@ var Market = {
     TypeRel: OS.constants.rel.type,
     GetRel: OS.constants.rel.get,
     types: {},
-    servicesURI: '/services/',
+    servicesURI: OS.constants.endpoints.services,
     serviceTypeCountTotal: 0,
     serviceTypeCount: 0,
     errorFlag: false,

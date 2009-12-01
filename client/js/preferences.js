@@ -43,7 +43,7 @@ var endTrigger = {
 };
 
 var Preferences = {
-    contentURI: '/services/content'
+    contentURI: OS.constants.endpoints.content
 };
 
 var preparePreferences = function() {

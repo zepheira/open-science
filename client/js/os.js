@@ -8,7 +8,9 @@
 var OS = {
     map: null,
     constants: {
-        "purl": "http://purl.zepheira.com/osci/" // This setting is key.
+        "purl": "http://purl.zepheira.com/osci/", // This setting is key.
+	"context": "/" // Any prefix for the service directory; must start
+                       // and end with a /
     },
     // This setting can be altered to turn off anything related
     // to the marketplace
@@ -27,6 +29,14 @@ OS.constants.serviceTypes = {
     "individual": OS.constants.purl + "service-types/individual",
     "content": OS.constants.purl + "service-types/content",
     "lens": OS.constants.purl + "service-types/lens"
+};
+
+OS.constants.endpoints = {
+    "services": OS.constants.context + "services/",
+    "tagging": OS.constants.context + "services/tagging",
+    "lenses": OS.constants.context + "services/lenses",
+    "content": OS.constants.context + "services/content",
+    "highlighting": OS.constants.context + "services/highlighting"
 };
 
 var prepareOS = function() {
