@@ -25,6 +25,10 @@
 		<property name="host" value="http://localhost:8080" />
 	</target>
 
+	<target name="context" depends="init" unless="context">
+	        <property name="context" value="/" />
+	</target>
+
 	<target name="compile" depends="init" description="compile the source ">
 		<!-- Compile the java code from ${src} into ${build} -->
 		<javac srcdir="${src}" destdir="${build}">
@@ -80,7 +84,7 @@
 		<delete dir="${dist}" />
 	</target>
 
-	<target name="deploy" depends="host">
+	<target name="deploy" depends="host,context">
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
 				<title type="text">DSpace</title>
@@ -107,9 +111,9 @@
 		<antcall target="post-content" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/highlighting/embl/reflect</id>
+				<id>${host}${context}services/highlighting/embl/reflect</id>
 				<title type="text">EMBL Reflect</title>
-				<link href="http://localhost:8080/services/highlighting/reflect/reflection" rel="http://purl.zepheira.com/osci/linker" />
+				<link href="${host}${context}services/highlighting/reflect/reflection" rel="http://purl.zepheira.com/osci/linker" />
 				<link href="http://purl.zepheira.com/osci/reflect" rel="http://purl.zepheira.com/osci/linkrel" />
 				<link href="${host}/i/reflect.png" type="image/jpeg" />
 			</entry>
@@ -117,7 +121,7 @@
 		<antcall target="post-individual" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/lenses/bookmarkview</id>
+				<id>${host}${context}services/lenses/bookmarkview</id>
 				<title type="text">Social Bookmark Lens</title>
 				<summary type="text">View the results returned in an abbreviated format.  </summary>
 				<link rel="http://purl.zepheira.com/osci/get" href="${host}/lens-registry/bookmark.html" type="application/xhtml+xml" />
@@ -127,7 +131,7 @@
 		<antcall target="post-lens" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/lenses/abbreviatedview</id>
+				<id>${host}${context}services/lenses/abbreviatedview</id>
 				<title type="text">Eric's Abbreviated View Lens</title>
 				<summary type="text">View the results returned in an abbreviated format.  </summary>
 				<link rel="http://purl.zepheira.com/osci/get" href="${host}/lens-registry/abbreviated.html" type="application/xhtml+xml" />
@@ -137,7 +141,7 @@
 		<antcall target="post-lens" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/lenses/umlstags</id>
+				<id>${host}${context}services/lenses/umlstags</id>
 				<title type="text">WhatIzIt UMLS Tags Lens</title>
 				<summary type="text">View the results of WhatIzIt processing using UMLS tags.</summary>
 				<link rel="http://purl.zepheira.com/osci/get" href="${host}/lens-registry/umls.html" type="application/xhtml+xml" />
@@ -146,9 +150,9 @@
 		<antcall target="post-lens" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/tagging/whatizitSwissprot/pipe</id>
+				<id>${host}${context}services/tagging/whatizitSwissprot/pipe</id>
 				<title type="text">WhatIzIt Swissprot+Gene Names</title>
-				<link href="http://localhost:8080/services/tagging/whatizitSwissprot/pipe" rel="http://purl.zepheira.com/osci/linker" />
+				<link href="${host}${context}services/tagging/whatizitSwissprot/pipe" rel="http://purl.zepheira.com/osci/linker" />
 				<link href="http://purl.zepheira.com/osci/whatizitSwissprot" rel="http://purl.zepheira.com/osci/linkrel" />
 				<link href="http://www.ensembl.org/img/ebi_logo.png" type="image/jpeg" />
 			</entry>
@@ -156,9 +160,9 @@
 		<antcall target="post-set" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/tagging/whatizitProteinDiseaseUMLS/pipe</id>
+				<id>${host}${context}services/tagging/whatizitProteinDiseaseUMLS/pipe</id>
 				<title type="text">WhatIzIt Swissprot+UMLS</title>
-				<link href="http://localhost:8080/services/tagging/whatizitProteinDiseaseUMLS/pipe" rel="http://purl.zepheira.com/osci/linker" />
+				<link href="${host}${context}services/tagging/whatizitProteinDiseaseUMLS/pipe" rel="http://purl.zepheira.com/osci/linker" />
 				<link href="http://purl.zepheira.com/osci/whatizitProteinDiseaseUMLS" rel="http://purl.zepheira.com/osci/linkrel" />
 				<link href="http://www.ensembl.org/img/ebi_logo.png" type="image/jpeg" />
 			</entry>
@@ -166,9 +170,9 @@
 		<antcall target="post-set" />
 		<echo file="${java.io.tmpdir}/entry.xml"><![CDATA[
 			<entry xmlns="http://www.w3.org/2005/Atom">
-				<id>${host}/services/tagging/whatizitEBIMed/pipe</id>
+				<id>${host}${context}services/tagging/whatizitEBIMed/pipe</id>
 				<title type="text">WhatIzIt EBIMed</title>
-				<link href="http://localhost:8080/services/tagging/whatizitEBIMed/pipe" rel="http://purl.zepheira.com/osci/linker" />
+				<link href="${host}${context}services/tagging/whatizitEBIMed/pipe" rel="http://purl.zepheira.com/osci/linker" />
 				<link href="http://purl.zepheira.com/osci/whatizitEBIMed" rel="http://purl.zepheira.com/osci/linkrel" />
 				<link href="http://www.ensembl.org/img/ebi_logo.png" type="image/jpeg" />
 			</entry>
@@ -180,13 +184,13 @@
 		<antcall target="post">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/content" />
+			<param name="url" value="${host}${context}services/content" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 		<antcall target="post-auth">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/content" />
+			<param name="url" value="${host}${context}services/content" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 	</target>
@@ -195,13 +199,13 @@
 		<antcall target="post">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/highlighting" />
+			<param name="url" value="${host}${context}services/highlighting" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 		<antcall target="post-auth">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/highlighting" />
+			<param name="url" value="${host}${context}services/highlighting" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 	</target>
@@ -210,13 +214,13 @@
 		<antcall target="post">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/lenses" />
+			<param name="url" value="${host}${context}services/lenses" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 		<antcall target="post-auth">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/lenses" />
+			<param name="url" value="${host}${context}services/lenses" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 	</target>
@@ -225,13 +229,13 @@
 		<antcall target="post">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/tagging" />
+			<param name="url" value="${host}${context}services/tagging" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 		<antcall target="post-auth">
 			<param name="dir" value="${java.io.tmpdir}" />
 			<param name="includes" value="entry.xml" />
-			<param name="url" value="${host}/services/tagging" />
+			<param name="url" value="${host}${context}services/tagging" />
 			<param name="type" value="application/atom+xml" />
 		</antcall>
 	</target>
