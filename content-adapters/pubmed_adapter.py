@@ -72,7 +72,7 @@ OPENSEARCH_NAMESPACE = u'http://a9.com/-/spec/opensearch/1.1/'
 OSCI_BASE = AKARA.module_config.get('osci-base', 'http://open-science.zepheira.com')
 ID_BASE = AKARA.module_config.get('id-base', OSCI_BASE).decode('utf-8')
 ADMIN_EMAIL = AKARA.module_config.get('admin-email', 'admin@my-open-science-server.com')
-DEFAULT_MAX_RESULTS = int(AKARA.module_config.get('default-max-results', '100'))
+DEFAULT_MAX_RESULTS = int(AKARA.module_config.get('default-max-results', 100))
 
 ATOM_ENVELOPE = '''<?xml version="1.0" encoding="UTF-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:os="http://a9.com/-/spec/opensearch/1.1/">
@@ -188,7 +188,7 @@ PUBMED_NS = OSCI_BASE + u'/content/pubmed/datamodel#'
 NCBI_ARTICLE_ACCESS_PATTERN = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?"
 
 #http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=cancer&reldate=60&datetype=edat&retmax=100&usehistory=y
-NCBI_SEARCH_PATTERN = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?term=%s&%s"
+NCBI_SEARCH_PATTERN = "http://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?"
 
 NCBI_HTML_ARTICLE_LINK_BASE = u"http://www.ncbi.nlm.nih.gov/pubmed/"
 
@@ -209,14 +209,13 @@ def pubmed_adapter(search=None, id=None):
         #search = first_item(search)
         #reldate: only search for last N days
         #query = urllib.urlencode({'db' : NCBI_DB, 'term': query, 'reldate': '60', 'datetype': 'edat', 'retmax': DEFAULT_MAX_RESULTS, 'usehistory': 'y'})
-        query = urllib.urlencode({'db' : NCBI_DB, 'datetype': 'edat', 'retmax': DEFAULT_MAX_RESULTS, 'usehistory': 'y'})
-        search_url = NCBI_SEARCH_PATTERN%(search, query)
+        query = urllib.urlencode({'term': search, 'db' : NCBI_DB, 'datetype': 'edat', 'retmax': DEFAULT_MAX_RESULTS, 'usehistory': 'y'})
+        search_url = NCBI_SEARCH_PATTERN + query
         logger.debug("Term search URL: " + search_url)
         doc = bindery.parse(search_url, standalone=True)
         search_terms = search
         ids = ( unicode(i) for i in doc.eSearchResult.IdList.Id )
         ids = ','.join(ids)
-        logger.debug("Result IDs: " + ids)
         self_link = '/pubmed?search='+search
     else:
         #ids = first_item(id)
@@ -249,15 +248,14 @@ def atom_results(doc, metadata, self_link, alt_link, search_terms):
     f.feed.xml_append(E((ATOM_NAMESPACE, u'link'), {u'rel': u'search', u'type': u'application/opensearchdescription+xml', u'href': OSCI_BASE + u'/content/pubmed.discovery'}))
     f.feed.xml_append(E((ATOM_NAMESPACE, u'link'), {u'rel': u'alternate', u'type': u'text/xml', u'href': alt_link.decode('utf-8')}))
     f.feed.xml_append(E((OPENSEARCH_NAMESPACE, u'Query'), {u'role': u'request', u'searchTerms': search_terms.decode('utf-8')}))
-    maxarticles = DEFAULT_MAX_RESULTS
     #amara.xml_print(doc, indent=True)
-    for aid in islice(doc.PubmedArticleSet.xml_select(u"PubmedArticle/MedlineCitation/PMID"), 0, maxarticles):
+    for aid in islice(doc.PubmedArticleSet.xml_select(u"PubmedArticle/MedlineCitation/PMID"), 0, DEFAULT_MAX_RESULTS):
         #print >> sys.stderr, metadata
         #if u'ArticleTitle' not in resource:
         #    continue
         resource = metadata[unicode(aid)]
         try:
-            authors = [ (u'%s, %s, %s'%(U(metadata[a][u'LastName']), U(metadata[a].get(u'FirstName', [u''])), U(metadata[a][u'Initials'])), None, None) for a in resource.get(u'Author', []) ]
+            authors = [ (u'%s, %s, %s'%(U(metadata[a][u'LastName']), U(metadata[a].get(u'FirstName', u'')), U(metadata[a][u'Initials'])), None, None) for a in resource.get(u'Author', []) ]
         except:
             authors = []
         links = [
