@@ -3,7 +3,7 @@
  */
 
 var ResultQuery = {
-    highlightingURI: '/services/highlighting',  
+    highlightingURI: OS.constants.endpoints.highlighting,
     LinkRel: OS.constants.rel.link,
     highlightingServices: [],
     resultErrorFlag: false,

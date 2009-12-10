@@ -7,8 +7,8 @@
  */
 
 var SearchQuery = {
-    taggingURI: '/services/tagging',
-    sourcesURI: '/services/content',
+    taggingURI: OS.constants.endpoints.tagging,
+    sourcesURI: OS.constants.endpoints.content,
     OSRel: OS.constants.rel.os,
     LinkRel: OS.constants.rel.link,
     tagQueue: [],

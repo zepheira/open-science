@@ -3,7 +3,7 @@
  */
 
 var AvailableResultsApps = {
-    taggingURI: '/services/tagging',
+    taggingURI: OS.constants.endpoints.tagging,
     LinkRel: OS.constants.rel.link,
     elementId: null,
     callback: function(){},

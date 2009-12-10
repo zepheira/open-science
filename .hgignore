@@ -4,6 +4,7 @@ syntax: glob
 server/enhanced/*.xml
 server/services/*.xml
 server/dist/*.jar
+server/dist/*.war
 server/build.properties
 *.tar
 *.tar.gz
